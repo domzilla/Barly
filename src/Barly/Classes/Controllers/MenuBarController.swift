@@ -21,6 +21,7 @@ class MenuBarController: NSObject {
     // MARK: - Properties
 
     private let menuManager = MenuManager()
+    private let displayModeManager = DisplayModeManager()
     private var autoCollapseTimer: Timer?
 
     private let separatorVisibleLength: CGFloat = 20
@@ -46,6 +47,7 @@ class MenuBarController: NSObject {
     override init() {
         super.init()
         setupUI()
+        setupDisplayModeManager()
 
         // Auto-collapse after 1 second on launch
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
@@ -53,6 +55,10 @@ class MenuBarController: NSObject {
         }
 
         showPreferencesOnLaunchIfNeeded()
+    }
+
+    private func setupDisplayModeManager() {
+        menuManager.displayModeManager = displayModeManager
     }
 
     private func setupUI() {
@@ -102,6 +108,10 @@ class MenuBarController: NSObject {
 
     func toggleExpandCollapse() {
         isCollapsed ? expandMenuBar() : collapseMenuBar()
+    }
+
+    func restoreDisplayModeIfNeeded() {
+        displayModeManager.restoreOriginalModeIfNeeded()
     }
 
     private func collapseMenuBar() {

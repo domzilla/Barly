@@ -14,11 +14,23 @@ class MenuManager: NSObject {
     // MARK: - Properties
 
     private var preferencesWindow: NSWindow?
+    var displayModeManager: DisplayModeManager?
 
     // MARK: - Context Menu
 
     func createContextMenu() -> NSMenu {
         let menu = NSMenu()
+
+        // Add "Hide Notch" / "Show Notch" toggle
+        let is16by10 = isCurrentResolution16by10()
+        let notchItem = NSMenuItem(
+            title: is16by10 ? String(localized: "Show Notch") : String(localized: "Hide Notch"),
+            action: #selector(toggleNotch(_:)),
+            keyEquivalent: ""
+        )
+        notchItem.target = self
+        menu.addItem(notchItem)
+        menu.addItem(NSMenuItem.separator())
 
         let prefsItem = NSMenuItem(
             title: String(localized: "Preferences..."),
@@ -57,7 +69,23 @@ class MenuManager: NSObject {
         return menu
     }
 
+    private func isCurrentResolution16by10() -> Bool {
+        let displayID = CGMainDisplayID()
+        guard let mode = CGDisplayCopyDisplayMode(displayID) else { return false }
+
+        let width = Double(mode.width)
+        let height = Double(mode.height)
+
+        // 16:10 = 1.6, with some tolerance for rounding
+        let aspectRatio = width / height
+        return abs(aspectRatio - 1.6) < 0.01
+    }
+
     // MARK: - Menu Actions
+
+    @objc private func toggleNotch(_ sender: Any?) {
+        displayModeManager?.toggle()
+    }
 
     @objc private func showPreferences(_ sender: Any?) {
         showPreferencesWindow()
