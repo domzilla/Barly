@@ -6,27 +6,8 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXContainerItemProxy section */
-		F2649BFD2EE85634004F0C4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F2649BE72EE85633004F0C4E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F2649BEE2EE85633004F0C4E;
-			remoteInfo = Barly;
-		};
-		F2649C072EE85634004F0C4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F2649BE72EE85633004F0C4E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F2649BEE2EE85633004F0C4E;
-			remoteInfo = Barly;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		F2649BEF2EE85633004F0C4E /* Barly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barly.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2649BFC2EE85634004F0C4E /* BarlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2649C062EE85634004F0C4E /* BarlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -35,34 +16,10 @@
 			path = Barly;
 			sourceTree = "<group>";
 		};
-		F2649BFF2EE85634004F0C4E /* BarlyTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BarlyTests;
-			sourceTree = "<group>";
-		};
-		F2649C092EE85634004F0C4E /* BarlyUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BarlyUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F2649BEC2EE85633004F0C4E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F2649BF92EE85634004F0C4E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F2649C032EE85634004F0C4E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,8 +33,6 @@
 			isa = PBXGroup;
 			children = (
 				F2649BF12EE85633004F0C4E /* Barly */,
-				F2649BFF2EE85634004F0C4E /* BarlyTests */,
-				F2649C092EE85634004F0C4E /* BarlyUITests */,
 				F2649BF02EE85633004F0C4E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,8 +41,6 @@
 			isa = PBXGroup;
 			children = (
 				F2649BEF2EE85633004F0C4E /* Barly.app */,
-				F2649BFC2EE85634004F0C4E /* BarlyTests.xctest */,
-				F2649C062EE85634004F0C4E /* BarlyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,52 +70,6 @@
 			productReference = F2649BEF2EE85633004F0C4E /* Barly.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F2649BFB2EE85634004F0C4E /* BarlyTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F2649C132EE85634004F0C4E /* Build configuration list for PBXNativeTarget "BarlyTests" */;
-			buildPhases = (
-				F2649BF82EE85634004F0C4E /* Sources */,
-				F2649BF92EE85634004F0C4E /* Frameworks */,
-				F2649BFA2EE85634004F0C4E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F2649BFE2EE85634004F0C4E /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				F2649BFF2EE85634004F0C4E /* BarlyTests */,
-			);
-			name = BarlyTests;
-			packageProductDependencies = (
-			);
-			productName = BarlyTests;
-			productReference = F2649BFC2EE85634004F0C4E /* BarlyTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		F2649C052EE85634004F0C4E /* BarlyUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F2649C162EE85634004F0C4E /* Build configuration list for PBXNativeTarget "BarlyUITests" */;
-			buildPhases = (
-				F2649C022EE85634004F0C4E /* Sources */,
-				F2649C032EE85634004F0C4E /* Frameworks */,
-				F2649C042EE85634004F0C4E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F2649C082EE85634004F0C4E /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				F2649C092EE85634004F0C4E /* BarlyUITests */,
-			);
-			name = BarlyUITests;
-			packageProductDependencies = (
-			);
-			productName = BarlyUITests;
-			productReference = F2649C062EE85634004F0C4E /* BarlyUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -175,14 +82,6 @@
 				TargetAttributes = {
 					F2649BEE2EE85633004F0C4E = {
 						CreatedOnToolsVersion = 26.1.1;
-					};
-					F2649BFB2EE85634004F0C4E = {
-						CreatedOnToolsVersion = 26.1.1;
-						TestTargetID = F2649BEE2EE85633004F0C4E;
-					};
-					F2649C052EE85634004F0C4E = {
-						CreatedOnToolsVersion = 26.1.1;
-						TestTargetID = F2649BEE2EE85633004F0C4E;
 					};
 				};
 			};
@@ -201,28 +100,12 @@
 			projectRoot = "";
 			targets = (
 				F2649BEE2EE85633004F0C4E /* Barly */,
-				F2649BFB2EE85634004F0C4E /* BarlyTests */,
-				F2649C052EE85634004F0C4E /* BarlyUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F2649BED2EE85633004F0C4E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F2649BFA2EE85634004F0C4E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F2649C042EE85634004F0C4E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -239,34 +122,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F2649BF82EE85634004F0C4E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F2649C022EE85634004F0C4E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F2649BFE2EE85634004F0C4E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F2649BEE2EE85633004F0C4E /* Barly */;
-			targetProxy = F2649BFD2EE85634004F0C4E /* PBXContainerItemProxy */;
-		};
-		F2649C082EE85634004F0C4E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F2649BEE2EE85633004F0C4E /* Barly */;
-			targetProxy = F2649C072EE85634004F0C4E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		F2649C0E2EE85634004F0C4E /* Debug */ = {
@@ -457,86 +313,6 @@
 			};
 			name = Release;
 		};
-		F2649C142EE85634004F0C4E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 568T6RKXH7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.domzilla.BarlyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Barly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Barly";
-			};
-			name = Debug;
-		};
-		F2649C152EE85634004F0C4E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 568T6RKXH7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.domzilla.BarlyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Barly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Barly";
-			};
-			name = Release;
-		};
-		F2649C172EE85634004F0C4E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 568T6RKXH7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.domzilla.BarlyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = Barly;
-			};
-			name = Debug;
-		};
-		F2649C182EE85634004F0C4E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 568T6RKXH7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.domzilla.BarlyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = Barly;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -554,24 +330,6 @@
 			buildConfigurations = (
 				F2649C112EE85634004F0C4E /* Debug */,
 				F2649C122EE85634004F0C4E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F2649C132EE85634004F0C4E /* Build configuration list for PBXNativeTarget "BarlyTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F2649C142EE85634004F0C4E /* Debug */,
-				F2649C152EE85634004F0C4E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F2649C162EE85634004F0C4E /* Build configuration list for PBXNativeTarget "BarlyUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F2649C172EE85634004F0C4E /* Debug */,
-				F2649C182EE85634004F0C4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
