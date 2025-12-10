@@ -20,7 +20,7 @@ class MenuBarController: NSObject {
 
     // MARK: - Properties
 
-    private let menuManager = MenuManager()
+    private let menuController = MenuController()
     private let displayModeManager = DisplayModeManager()
     private var autoCollapseTimer: Timer?
 
@@ -58,7 +58,7 @@ class MenuBarController: NSObject {
     }
 
     private func setupDisplayModeManager() {
-        menuManager.displayModeManager = displayModeManager
+        menuController.displayModeManager = displayModeManager
     }
 
     private func setupUI() {
@@ -83,7 +83,7 @@ class MenuBarController: NSObject {
             ?? PreferenceDefaults.showPreferencesOnLaunch
 
         if showOnLaunch {
-            menuManager.showPreferencesWindow()
+            menuController.showPreferencesWindow()
         }
     }
 
@@ -97,7 +97,7 @@ class MenuBarController: NSObject {
 
         if isRightClick || isControlClick {
             // Show context menu on right-click or control-click
-            arrowItem.menu = menuManager.createContextMenu()
+            arrowItem.menu = menuController.createContextMenu()
             arrowItem.button?.performClick(nil)
             arrowItem.menu = nil
         } else {

@@ -1,5 +1,5 @@
 //
-//  MenuManager.swift
+//  MenuController.swift
 //  Barly
 //
 //  Created by Dominic Rodemer on 09.12.25.
@@ -9,7 +9,7 @@ import SwiftUI
 import Cocoa
 
 @MainActor
-class MenuManager: NSObject {
+class MenuController: NSObject {
 
     // MARK: - Properties
 
