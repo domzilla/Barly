@@ -9,7 +9,7 @@ import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     let mainMenuController = MainMenuController()
-    let statusItemController = StatusItemController()
+    let statusBarItemController = StatusBarItemController()
 
     func applicationDidFinishLaunching(_ notification: Notification) {
 

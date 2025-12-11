@@ -8,19 +8,19 @@
 import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
-    var menuBarController: MenuBarController?
+    var statusBarController: StatusBarController?
     var hotkeyManager: HotkeyManager?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        menuBarController = MenuBarController()
+        statusBarController = StatusBarController()
         hotkeyManager = HotkeyManager { [weak self] in
             Task { @MainActor in
-                self?.menuBarController?.toggleExpandCollapse()
+                self?.statusBarController?.toggleExpandCollapse()
             }
         }
     }
 
     func applicationWillTerminate(_ notification: Notification) {
-        menuBarController?.restoreDisplayModeIfNeeded()
+        statusBarController?.restoreDisplayModeIfNeeded()
     }
 }

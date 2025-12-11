@@ -1,5 +1,5 @@
 //
-//  StatusItemController.swift
+//  StatusBarItemController.swift
 //  Clutter
 //
 //  Created by Dominic Rodemer on 10.12.25.
@@ -9,7 +9,7 @@ import Cocoa
 
 @Observable
 @MainActor
-class StatusItemController {
+class StatusBarItemController {
     private(set) var count = 0
     private var statusItems: [NSStatusItem] = []
 

@@ -1,5 +1,5 @@
 //
-//  MenuBarController.swift
+//  StatusBarController.swift
 //  Barly
 //
 //  Created by Dominic Rodemer on 09.12.25.
@@ -8,7 +8,7 @@
 import Cocoa
 
 @MainActor
-class MenuBarController: NSObject {
+class StatusBarController: NSObject {
 
     // MARK: - Status Bar Items
 
@@ -51,7 +51,7 @@ class MenuBarController: NSObject {
 
         // Auto-collapse after 1 second on launch
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-            self?.collapseMenuBar()
+            self?.collapseStatusBar()
         }
 
         showPreferencesOnLaunchIfNeeded()
@@ -107,14 +107,14 @@ class MenuBarController: NSObject {
     }
 
     func toggleExpandCollapse() {
-        isCollapsed ? expandMenuBar() : collapseMenuBar()
+        isCollapsed ? expandStatusBar() : collapseStatusBar()
     }
 
     func restoreDisplayModeIfNeeded() {
         displayModeManager.restoreOriginalModeIfNeeded()
     }
 
-    private func collapseMenuBar() {
+    private func collapseStatusBar() {
         guard isSeparatorValidPosition, !isCollapsed else {
             startAutoCollapseTimerIfNeeded()
             return
@@ -127,7 +127,7 @@ class MenuBarController: NSObject {
         }
     }
 
-    private func expandMenuBar() {
+    private func expandStatusBar() {
         guard isCollapsed else { return }
 
         separatorItem.length = separatorVisibleLength
@@ -157,7 +157,7 @@ class MenuBarController: NSObject {
             repeats: false
         ) { [weak self] _ in
             DispatchQueue.main.async {
-                self?.collapseMenuBar()
+                self?.collapseStatusBar()
             }
         }
     }
