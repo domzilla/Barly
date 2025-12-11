@@ -32,20 +32,20 @@ struct ContentView: View {
                 .padding(.vertical, 8)
             }
 
-            GroupBox("Menu Bar Items") {
+            GroupBox("Status Bar Items") {
                 VStack(spacing: 12) {
                     HStack(spacing: 12) {
                         Button("Add") {
-                            appDelegate.statusItemController.addStatusItem()
+                            appDelegate.statusBarItemController.addStatusItem()
                         }
 
                         Button("Remove") {
-                            appDelegate.statusItemController.removeStatusItem()
+                            appDelegate.statusBarItemController.removeStatusItem()
                         }
-                        .disabled(appDelegate.statusItemController.count == 0)
+                        .disabled(appDelegate.statusBarItemController.count == 0)
                     }
 
-                    Text("Count: \(appDelegate.statusItemController.count)")
+                    Text("Count: \(appDelegate.statusBarItemController.count)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
