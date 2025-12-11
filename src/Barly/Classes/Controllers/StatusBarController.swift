@@ -22,6 +22,7 @@ class StatusBarController: NSObject {
 
     private let menuController = MenuController()
     private let displayModeManager = DisplayModeManager()
+    private let activationPolicyManager = ActivationPolicyManager()
     private var autoCollapseTimer: Timer?
 
     private let separatorVisibleLength: CGFloat = 20
@@ -125,6 +126,8 @@ class StatusBarController: NSObject {
         if let button = arrowItem.button {
             button.image = NSImage(named: "expand")
         }
+
+        activationPolicyManager.deactivate()
     }
 
     private func expandStatusBar() {
@@ -136,6 +139,7 @@ class StatusBarController: NSObject {
             button.image = NSImage(named: "collapse")
         }
 
+        activationPolicyManager.activateIfEnabled()
         startAutoCollapseTimerIfNeeded()
     }
 

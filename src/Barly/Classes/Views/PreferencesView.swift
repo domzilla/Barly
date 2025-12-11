@@ -11,6 +11,7 @@ struct PreferencesView: View {
     @AppStorage(PreferenceKeys.isAutoCollapseEnabled) private var isAutoCollapseEnabled = PreferenceDefaults.isAutoCollapseEnabled
     @AppStorage(PreferenceKeys.autoCollapseDelay) private var autoCollapseDelay = PreferenceDefaults.autoCollapseDelay
     @AppStorage(PreferenceKeys.showPreferencesOnLaunch) private var showPreferencesOnLaunch = PreferenceDefaults.showPreferencesOnLaunch
+    @AppStorage(PreferenceKeys.isFullExpandEnabled) private var isFullExpandEnabled = PreferenceDefaults.isFullExpandEnabled
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -57,6 +58,9 @@ struct PreferencesView: View {
             // Checkboxes
             VStack(alignment: .leading, spacing: 8) {
                 Toggle("Enable auto-collapse", isOn: $isAutoCollapseEnabled)
+                    .font(.system(size: 13))
+
+                Toggle("Fully expand status bar (shows Dock icon temporarily)", isOn: $isFullExpandEnabled)
                     .font(.system(size: 13))
 
                 Toggle("Show this window when starting Barly", isOn: $showPreferencesOnLaunch)
