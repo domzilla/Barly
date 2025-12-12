@@ -30,8 +30,10 @@ struct StatusBarMockView: View {
 
                 // Hidden items (left of separator)
                 HStack(spacing: 12) {
+                    Image(systemName: "antenna.radiowaves.left.and.right.circle")
                     Image(systemName: "scanner")
                     Image(systemName: "circle.square.fill")
+                    Image(systemName: "lightswitch.on.square")
                 }
                 .foregroundStyle(.tertiary)
 
