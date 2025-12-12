@@ -108,7 +108,23 @@ class StatusBarController: NSObject {
     }
 
     func toggleExpandCollapse() {
-        isCollapsed ? expandStatusBar() : collapseStatusBar()
+        if isCollapsed {
+            expandStatusBar()
+        } else {
+            if !isSeparatorValidPosition {
+                showInvalidPositionAlert()
+            }
+            collapseStatusBar()
+        }
+    }
+
+    private func showInvalidPositionAlert() {
+        let alert = NSAlert()
+        alert.messageText = String(localized: "Separator in Wrong Position")
+        alert.informativeText = String(localized: "The separator is on the wrong side. Please drag the separator (|) to the left of the arrow icon in your status bar for Barly to work correctly.")
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: String(localized: "OK"))
+        alert.runModal()
     }
 
     func restoreDisplayModeIfNeeded() {
