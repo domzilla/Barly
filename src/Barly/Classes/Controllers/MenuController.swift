@@ -9,7 +9,7 @@ import SwiftUI
 import Cocoa
 
 @MainActor
-class MenuController: NSObject {
+class MenuController: NSObject, NSMenuItemValidation {
 
     // MARK: - Properties
 
@@ -30,10 +30,6 @@ class MenuController: NSObject {
                 keyEquivalent: ""
             )
             notchItem.target = self
-
-            // Disable when built-in display is not active (lid closed with external monitor)
-            notchItem.isEnabled = displayModeManager?.isBuiltInDisplayActive ?? false
-
             menu.addItem(notchItem)
             menu.addItem(NSMenuItem.separator())
         }
@@ -85,6 +81,16 @@ class MenuController: NSObject {
         // 16:10 = 1.6, with some tolerance for rounding
         let aspectRatio = width / height
         return abs(aspectRatio - 1.6) < 0.01
+    }
+
+    // MARK: - Menu Validation
+
+    func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        if menuItem.action == #selector(toggleNotch(_:)) {
+            // Disable when built-in display is not active (lid closed with external monitor)
+            return displayModeManager?.isBuiltInDisplayActive ?? false
+        }
+        return true
     }
 
     // MARK: - Menu Actions
