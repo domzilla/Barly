@@ -75,7 +75,7 @@ struct StatusBarMockView: View {
                         }
                         .font(.system(size: 12))
                         .foregroundStyle(.secondary)
-                        .position(x: geometry[anchor].x, y: geometry.size.height + 16)
+                        .position(x: geometry[anchor].x - 1, y: geometry.size.height + 16)
                     }
                 }
             }
