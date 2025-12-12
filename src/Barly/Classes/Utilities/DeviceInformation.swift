@@ -36,17 +36,19 @@ enum DeviceInformation {
     static let hasNotch: Bool = {
         guard let model = modelIdentifier else { return false }
 
-        // List of Mac models with notch displays (from ByeNotch project)
+        // List of Mac models with notch displays
+        // Source: https://support.apple.com/en-us/108052, https://support.apple.com/en-us/102869
         let notchedModels: Set<String> = [
             // MacBook Air 13" (M2-M4)
             "Mac14,2", "Mac15,12", "Mac16,12",
             // MacBook Air 15" (M2-M4)
             "Mac14,15", "Mac15,13", "Mac16,13",
-            // MacBook Pro 14" (M1-M4)
+            // MacBook Pro 14" (M1-M5)
             "MacBookPro18,3", "MacBookPro18,4",
             "Mac14,5", "Mac14,9",
             "Mac15,3", "Mac15,6", "Mac15,8", "Mac15,10",
             "Mac16,1", "Mac16,6", "Mac16,8",
+            "Mac17,2",
             // MacBook Pro 16" (M1-M4)
             "MacBookPro18,1", "MacBookPro18,2",
             "Mac14,6", "Mac14,10",
