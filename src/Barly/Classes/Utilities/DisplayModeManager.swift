@@ -25,6 +25,24 @@ class DisplayModeManager {
 
     // MARK: - Public Methods
 
+    /// Returns true if the built-in display is currently active (lid open).
+    var isBuiltInDisplayActive: Bool {
+        var displayCount: UInt32 = 0
+        var activeDisplays = [CGDirectDisplayID](repeating: 0, count: 16)
+
+        guard CGGetActiveDisplayList(16, &activeDisplays, &displayCount) == .success else {
+            return false
+        }
+
+        for i in 0..<Int(displayCount) {
+            if CGDisplayIsBuiltin(activeDisplays[i]) != 0 {
+                return true
+            }
+        }
+
+        return false
+    }
+
     func toggle() {
         if isCurrentResolution16by10() {
             showNotch()

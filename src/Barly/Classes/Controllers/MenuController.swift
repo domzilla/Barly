@@ -30,6 +30,10 @@ class MenuController: NSObject {
                 keyEquivalent: ""
             )
             notchItem.target = self
+
+            // Disable when built-in display is not active (lid closed with external monitor)
+            notchItem.isEnabled = displayModeManager?.isBuiltInDisplayActive ?? false
+
             menu.addItem(notchItem)
             menu.addItem(NSMenuItem.separator())
         }
