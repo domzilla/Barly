@@ -62,8 +62,8 @@ struct StatusBarMockView: View {
             .frame(maxWidth: .infinity)
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
-            .background(Color(nsColor: .darkGray))
-            .foregroundStyle(.white)
+            .background(Color(nsColor: .secondarySystemFill))
+            .foregroundStyle(.primary)
             .clipShape(RoundedRectangle(cornerRadius: 6))
             .overlayPreferenceValue(SeparatorPositionKey.self) { anchor in
                 GeometryReader { geometry in
@@ -73,8 +73,8 @@ struct StatusBarMockView: View {
                             Image(systemName: "arrow.up")
                             Text("Shown")
                         }
-                        .font(.system(size: 12))
-                        .foregroundStyle(.secondary)
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundStyle(.primary)
                         .position(x: geometry[anchor].x - 1, y: geometry.size.height + 16)
                     }
                 }

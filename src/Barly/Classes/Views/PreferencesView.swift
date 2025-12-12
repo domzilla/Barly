@@ -28,6 +28,7 @@ struct PreferencesView: View {
 
                     Text("Right-click (or \u{2303}-click) the arrow icon to show the Barly menu.")
                         .font(.system(size: 13, weight: .bold))
+                        .foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
                 }
             }
