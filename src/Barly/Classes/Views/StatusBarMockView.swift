@@ -33,15 +33,25 @@ struct StatusBarMockView: View {
                     Image(systemName: "scanner")
                     Image(systemName: "circle.square.fill")
                 }
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.tertiary)
 
                 // Separator (pipe)
-                Image(nsImage: NSImage(named: "seprator") ?? NSImage())
+                Image(nsImage: {
+                    let image = NSImage(named: "seprator") ?? NSImage()
+                    image.isTemplate = true
+                    return image
+                }())
+                    .foregroundStyle(.primary)
                     .padding(.horizontal, 12)
                     .anchorPreference(key: SeparatorPositionKey.self, value: .center) { $0 }
 
                 // Arrow (collapse indicator)
-                Image(nsImage: NSImage(named: "collapse") ?? NSImage())
+                Image(nsImage: {
+                    let image = NSImage(named: "collapse") ?? NSImage()
+                    image.isTemplate = true
+                    return image
+                }())
+                    .foregroundStyle(.primary)
 
                 Spacer()
                     .frame(width: 16)
@@ -57,6 +67,7 @@ struct StatusBarMockView: View {
                     Text(currentDateTime)
                         .font(.system(size: 13))
                 }
+                .foregroundStyle(.tertiary)
             }
             .font(.system(size: 14))
             .frame(maxWidth: .infinity)
