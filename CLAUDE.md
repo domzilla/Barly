@@ -44,6 +44,7 @@ Collapse works by setting the separator's length to 10,000 pixels, pushing other
 
 - **MenuController** (`src/Barly/Classes/Controllers/MenuController.swift`) - Context menu and preferences window management
 - **DisplayModeManager** (`src/Barly/Classes/Utilities/DisplayModeManager.swift`) - Display mode switching for notch hiding
+- **DeviceInformation** (`src/Barly/Classes/Utilities/DeviceInformation.swift`) - Static device information (model identifier, notch detection)
 - **ActivationPolicyManager** (`src/Barly/Classes/Utilities/ActivationPolicyManager.swift`) - Manages full expand feature (dock icon and empty menu bar)
 - **HotkeyManager** (`src/Barly/Classes/Utilities/HotkeyManager.swift`) - Global hotkey (Cmd+Option+B) using Carbon API
 - **Preferences** (`src/Barly/Classes/Models/Preferences.swift`) - UserDefaults keys and defaults

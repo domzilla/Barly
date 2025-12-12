@@ -21,16 +21,18 @@ class MenuController: NSObject {
     func createContextMenu() -> NSMenu {
         let menu = NSMenu()
 
-        // Add "Hide Notch" / "Show Notch" toggle
-        let is16by10 = isCurrentResolution16by10()
-        let notchItem = NSMenuItem(
-            title: is16by10 ? String(localized: "Show Notch") : String(localized: "Hide Notch"),
-            action: #selector(toggleNotch(_:)),
-            keyEquivalent: ""
-        )
-        notchItem.target = self
-        menu.addItem(notchItem)
-        menu.addItem(NSMenuItem.separator())
+        // Add "Hide Notch" / "Show Notch" toggle only if Mac has a notch
+        if DeviceInformation.hasNotch {
+            let is16by10 = isCurrentResolution16by10()
+            let notchItem = NSMenuItem(
+                title: is16by10 ? String(localized: "Show Notch") : String(localized: "Hide Notch"),
+                action: #selector(toggleNotch(_:)),
+                keyEquivalent: ""
+            )
+            notchItem.target = self
+            menu.addItem(notchItem)
+            menu.addItem(NSMenuItem.separator())
+        }
 
         let prefsItem = NSMenuItem(
             title: String(localized: "Preferences..."),
