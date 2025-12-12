@@ -17,24 +17,27 @@ struct PreferencesView: View {
         VStack(alignment: .leading, spacing: 0) {
             // Icon and description
             HStack(alignment: .center, spacing: 16) {
-                ZStack {
-                    Image(nsImage: NSImage(named: NSImage.applicationIconName) ?? NSImage())
-                        .resizable()
-                        .frame(width: 140, height: 140)
-                }
+                Image(nsImage: NSImage(named: NSImage.applicationIconName) ?? NSImage())
+                    .resizable()
+                    .frame(width: 100, height: 100)
 
-                VStack(alignment: .leading, spacing: 16) {
-                    Text("Barly is now running. You can find its icon in the right side of your menu bar. Click it to expand/collapse hidden menu bar items.")
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Barly is now running. Reorder status bar icons by \u{2318}-dragging. Drag icons to the left of the separator  |  to hide them.")
                         .font(.system(size: 13))
                         .fixedSize(horizontal: false, vertical: true)
 
-                    Text("Right-click (or \u{2318}-click) the menu bar icon to show the Barly menu.")
+                    Text("Right-click (or \u{2303}-click) the arrow icon to show the Barly menu.")
                         .font(.system(size: 13, weight: .bold))
                         .fixedSize(horizontal: false, vertical: true)
                 }
             }
             .padding(.top, 20)
-            .padding(.bottom, 20)
+            .padding(.bottom, 16)
+
+            // Status bar mock
+            StatusBarMockView()
+
+            Spacer()
 
             // Auto-collapse duration
             HStack(spacing: 8) {
@@ -68,7 +71,6 @@ struct PreferencesView: View {
             }
 
             Spacer()
-                .frame(minHeight: 30, maxHeight: .infinity)
 
             // Footer buttons
             HStack {
