@@ -1,0 +1,40 @@
+/*
+  Localizable.strings
+  Barly
+
+  Italian
+*/
+
+/* Menu Items */
+"Show Notch" = "Mostra notch";
+"Hide Notch" = "Nascondi notch";
+"Preferences..." = "Preferenze…";
+"About Barly" = "Informazioni su Barly";
+"Check for Updates..." = "Verifica aggiornamenti…";
+"Quit" = "Esci";
+
+/* Window Titles */
+"Welcome to Barly" = "Benvenuto in Barly";
+
+/* Alerts */
+"Separator in Wrong Position" = "Separatore in posizione errata";
+"The separator is on the wrong side. Please drag the separator (|) to the left of the arrow icon in your status bar for Barly to work correctly." = "Il separatore è dalla parte sbagliata. Trascina il separatore (|) a sinistra dell'icona freccia nella barra di stato affinché Barly funzioni correttamente.";
+"OK" = "OK";
+
+/* Preferences View */
+"Barly is now running. Reorder status bar icons by ⌘-dragging. Drag icons to the left of the separator  |  to hide them." = "Barly è ora in esecuzione. Riordina le icone della barra di stato trascinando con ⌘. Trascina le icone a sinistra del separatore  |  per nasconderle.";
+"Right-click (or ⌃-click) the arrow icon to show the Barly menu." = "Fai clic destro (o ⌃-clic) sull'icona freccia per mostrare il menu di Barly.";
+"Auto-collapse after:" = "Comprimi automaticamente dopo:";
+"5 seconds" = "5 secondi";
+"10 seconds" = "10 secondi";
+"15 seconds" = "15 secondi";
+"30 seconds" = "30 secondi";
+"1 minute" = "1 minuto";
+"Enable auto-collapse" = "Abilita compressione automatica";
+"Fully expand status bar (shows Dock icon temporarily)" = "Espandi completamente la barra di stato (mostra temporaneamente l'icona del Dock)";
+"Show this window when starting Barly" = "Mostra questa finestra all'avvio di Barly";
+"Close" = "Chiudi";
+
+/* Status Bar Mock */
+"Hidden" = "Nascosto";
+"Shown" = "Visibile";

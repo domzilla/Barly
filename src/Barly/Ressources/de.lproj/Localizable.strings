@@ -1,0 +1,40 @@
+/*
+  Localizable.strings
+  Barly
+
+  German
+*/
+
+/* Menu Items */
+"Show Notch" = "Notch anzeigen";
+"Hide Notch" = "Notch ausblenden";
+"Preferences..." = "Einstellungen …";
+"About Barly" = "Über Barly";
+"Check for Updates..." = "Nach Updates suchen …";
+"Quit" = "Beenden";
+
+/* Window Titles */
+"Welcome to Barly" = "Willkommen bei Barly";
+
+/* Alerts */
+"Separator in Wrong Position" = "Trennzeichen an falscher Position";
+"The separator is on the wrong side. Please drag the separator (|) to the left of the arrow icon in your status bar for Barly to work correctly." = "Das Trennzeichen befindet sich auf der falschen Seite. Bitte ziehe das Trennzeichen (|) links neben das Pfeil-Symbol in der Statusleiste, damit Barly korrekt funktioniert.";
+"OK" = "OK";
+
+/* Preferences View */
+"Barly is now running. Reorder status bar icons by ⌘-dragging. Drag icons to the left of the separator  |  to hide them." = "Barly läuft jetzt. Ordne Statusleisten-Symbole durch ⌘-Ziehen neu an. Ziehe Symbole links neben das Trennzeichen  |  um sie auszublenden.";
+"Right-click (or ⌃-click) the arrow icon to show the Barly menu." = "Klicke mit der rechten Maustaste (oder ⌃-Klick) auf das Pfeil-Symbol, um das Barly-Menü anzuzeigen.";
+"Auto-collapse after:" = "Automatisch einklappen nach:";
+"5 seconds" = "5 Sekunden";
+"10 seconds" = "10 Sekunden";
+"15 seconds" = "15 Sekunden";
+"30 seconds" = "30 Sekunden";
+"1 minute" = "1 Minute";
+"Enable auto-collapse" = "Automatisches Einklappen aktivieren";
+"Fully expand status bar (shows Dock icon temporarily)" = "Statusleiste vollständig erweitern (zeigt Dock-Symbol vorübergehend)";
+"Show this window when starting Barly" = "Dieses Fenster beim Start von Barly anzeigen";
+"Close" = "Schließen";
+
+/* Status Bar Mock */
+"Hidden" = "Ausgeblendet";
+"Shown" = "Sichtbar";

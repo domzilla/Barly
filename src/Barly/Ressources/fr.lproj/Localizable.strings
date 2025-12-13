@@ -1,0 +1,40 @@
+/*
+  Localizable.strings
+  Barly
+
+  French
+*/
+
+/* Menu Items */
+"Show Notch" = "Afficher l'encoche";
+"Hide Notch" = "Masquer l'encoche";
+"Preferences..." = "Préférences…";
+"About Barly" = "À propos de Barly";
+"Check for Updates..." = "Rechercher des mises à jour…";
+"Quit" = "Quitter";
+
+/* Window Titles */
+"Welcome to Barly" = "Bienvenue dans Barly";
+
+/* Alerts */
+"Separator in Wrong Position" = "Séparateur mal positionné";
+"The separator is on the wrong side. Please drag the separator (|) to the left of the arrow icon in your status bar for Barly to work correctly." = "Le séparateur est du mauvais côté. Veuillez faire glisser le séparateur (|) à gauche de l'icône flèche dans votre barre d'état pour que Barly fonctionne correctement.";
+"OK" = "OK";
+
+/* Preferences View */
+"Barly is now running. Reorder status bar icons by ⌘-dragging. Drag icons to the left of the separator  |  to hide them." = "Barly est maintenant actif. Réorganisez les icônes de la barre d'état en les faisant glisser avec ⌘. Faites glisser les icônes à gauche du séparateur  |  pour les masquer.";
+"Right-click (or ⌃-click) the arrow icon to show the Barly menu." = "Cliquez avec le bouton droit (ou ⌃-clic) sur l'icône flèche pour afficher le menu Barly.";
+"Auto-collapse after:" = "Replier automatiquement après :";
+"5 seconds" = "5 secondes";
+"10 seconds" = "10 secondes";
+"15 seconds" = "15 secondes";
+"30 seconds" = "30 secondes";
+"1 minute" = "1 minute";
+"Enable auto-collapse" = "Activer le repliement automatique";
+"Fully expand status bar (shows Dock icon temporarily)" = "Étendre complètement la barre d'état (affiche temporairement l'icône du Dock)";
+"Show this window when starting Barly" = "Afficher cette fenêtre au démarrage de Barly";
+"Close" = "Fermer";
+
+/* Status Bar Mock */
+"Hidden" = "Masqué";
+"Shown" = "Visible";

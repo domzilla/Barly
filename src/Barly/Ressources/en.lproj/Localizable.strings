@@ -1,0 +1,40 @@
+/*
+  Localizable.strings
+  Barly
+
+  English
+*/
+
+/* Menu Items */
+"Show Notch" = "Show Notch";
+"Hide Notch" = "Hide Notch";
+"Preferences..." = "Preferences...";
+"About Barly" = "About Barly";
+"Check for Updates..." = "Check for Updates...";
+"Quit" = "Quit";
+
+/* Window Titles */
+"Welcome to Barly" = "Welcome to Barly";
+
+/* Alerts */
+"Separator in Wrong Position" = "Separator in Wrong Position";
+"The separator is on the wrong side. Please drag the separator (|) to the left of the arrow icon in your status bar for Barly to work correctly." = "The separator is on the wrong side. Please drag the separator (|) to the left of the arrow icon in your status bar for Barly to work correctly.";
+"OK" = "OK";
+
+/* Preferences View */
+"Barly is now running. Reorder status bar icons by ⌘-dragging. Drag icons to the left of the separator  |  to hide them." = "Barly is now running. Reorder status bar icons by ⌘-dragging. Drag icons to the left of the separator  |  to hide them.";
+"Right-click (or ⌃-click) the arrow icon to show the Barly menu." = "Right-click (or ⌃-click) the arrow icon to show the Barly menu.";
+"Auto-collapse after:" = "Auto-collapse after:";
+"5 seconds" = "5 seconds";
+"10 seconds" = "10 seconds";
+"15 seconds" = "15 seconds";
+"30 seconds" = "30 seconds";
+"1 minute" = "1 minute";
+"Enable auto-collapse" = "Enable auto-collapse";
+"Fully expand status bar (shows Dock icon temporarily)" = "Fully expand status bar (shows Dock icon temporarily)";
+"Show this window when starting Barly" = "Show this window when starting Barly";
+"Close" = "Close";
+
+/* Status Bar Mock */
+"Hidden" = "Hidden";
+"Shown" = "Shown";

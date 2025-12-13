@@ -1,0 +1,40 @@
+/*
+  Localizable.strings
+  Barly
+
+  Dutch
+*/
+
+/* Menu Items */
+"Show Notch" = "Toon notch";
+"Hide Notch" = "Verberg notch";
+"Preferences..." = "Voorkeuren…";
+"About Barly" = "Over Barly";
+"Check for Updates..." = "Controleer op updates…";
+"Quit" = "Stop";
+
+/* Window Titles */
+"Welcome to Barly" = "Welkom bij Barly";
+
+/* Alerts */
+"Separator in Wrong Position" = "Scheidingsteken op verkeerde positie";
+"The separator is on the wrong side. Please drag the separator (|) to the left of the arrow icon in your status bar for Barly to work correctly." = "Het scheidingsteken staat aan de verkeerde kant. Sleep het scheidingsteken (|) naar links van het pijlpictogram in je statusbalk zodat Barly correct werkt.";
+"OK" = "OK";
+
+/* Preferences View */
+"Barly is now running. Reorder status bar icons by ⌘-dragging. Drag icons to the left of the separator  |  to hide them." = "Barly is nu actief. Herorden statusbalkpictogrammen door te slepen met ⌘. Sleep pictogrammen naar links van het scheidingsteken  |  om ze te verbergen.";
+"Right-click (or ⌃-click) the arrow icon to show the Barly menu." = "Klik met de rechtermuisknop (of ⌃-klik) op het pijlpictogram om het Barly-menu te tonen.";
+"Auto-collapse after:" = "Automatisch inklappen na:";
+"5 seconds" = "5 seconden";
+"10 seconds" = "10 seconden";
+"15 seconds" = "15 seconden";
+"30 seconds" = "30 seconden";
+"1 minute" = "1 minuut";
+"Enable auto-collapse" = "Automatisch inklappen inschakelen";
+"Fully expand status bar (shows Dock icon temporarily)" = "Statusbalk volledig uitvouwen (toont Dock-pictogram tijdelijk)";
+"Show this window when starting Barly" = "Dit venster tonen bij het starten van Barly";
+"Close" = "Sluit";
+
+/* Status Bar Mock */
+"Hidden" = "Verborgen";
+"Shown" = "Zichtbaar";

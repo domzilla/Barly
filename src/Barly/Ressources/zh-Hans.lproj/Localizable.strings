@@ -1,0 +1,40 @@
+/*
+  Localizable.strings
+  Barly
+
+  Simplified Chinese
+*/
+
+/* Menu Items */
+"Show Notch" = "显示刘海";
+"Hide Notch" = "隐藏刘海";
+"Preferences..." = "偏好设置…";
+"About Barly" = "关于 Barly";
+"Check for Updates..." = "检查更新…";
+"Quit" = "退出";
+
+/* Window Titles */
+"Welcome to Barly" = "欢迎使用 Barly";
+
+/* Alerts */
+"Separator in Wrong Position" = "分隔符位置错误";
+"The separator is on the wrong side. Please drag the separator (|) to the left of the arrow icon in your status bar for Barly to work correctly." = "分隔符位于错误的位置。请将分隔符（|）拖动到状态栏中箭头图标的左侧，以便 Barly 正常工作。";
+"OK" = "好";
+
+/* Preferences View */
+"Barly is now running. Reorder status bar icons by ⌘-dragging. Drag icons to the left of the separator  |  to hide them." = "Barly 正在运行。按住 ⌘ 键拖动可重新排列状态栏图标。将图标拖到分隔符  |  左侧可将其隐藏。";
+"Right-click (or ⌃-click) the arrow icon to show the Barly menu." = "右键点击（或按住 ⌃ 点击）箭头图标可显示 Barly 菜单。";
+"Auto-collapse after:" = "自动折叠时间：";
+"5 seconds" = "5 秒";
+"10 seconds" = "10 秒";
+"15 seconds" = "15 秒";
+"30 seconds" = "30 秒";
+"1 minute" = "1 分钟";
+"Enable auto-collapse" = "启用自动折叠";
+"Fully expand status bar (shows Dock icon temporarily)" = "完全展开状态栏（临时显示 Dock 图标）";
+"Show this window when starting Barly" = "启动 Barly 时显示此窗口";
+"Close" = "关闭";
+
+/* Status Bar Mock */
+"Hidden" = "已隐藏";
+"Shown" = "显示中";

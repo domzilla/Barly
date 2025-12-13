@@ -59,6 +59,24 @@ Stored via `@AppStorage`/`UserDefaults`:
 - `isFullExpandEnabled` (default: true) - Shows dock icon and empty menu bar when expanded
 - `showPreferencesOnLaunch` (default: true)
 
+### Localization
+
+Localization files are in `src/Barly/Ressources/`. Supported languages:
+- English (`en.lproj`)
+- German (`de.lproj`)
+- French (`fr.lproj`)
+- Spanish (`es.lproj`)
+- Italian (`it.lproj`)
+- Dutch (`nl.lproj`)
+- Japanese (`ja.lproj`)
+- Korean (`ko.lproj`)
+- Portuguese (`pt.lproj`)
+- Brazilian Portuguese (`pt-BR.lproj`)
+- Russian (`ru.lproj`)
+- Simplified Chinese (`zh-Hans.lproj`)
+
+All user-facing strings use `String(localized:)` for localization support.
+
 ## Tools
 
 ### Clutter (`tools/Clutter/`)

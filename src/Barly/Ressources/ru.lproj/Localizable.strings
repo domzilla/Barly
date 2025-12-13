@@ -1,0 +1,40 @@
+/*
+  Localizable.strings
+  Barly
+
+  Russian
+*/
+
+/* Menu Items */
+"Show Notch" = "Показать вырез";
+"Hide Notch" = "Скрыть вырез";
+"Preferences..." = "Настройки…";
+"About Barly" = "О программе Barly";
+"Check for Updates..." = "Проверить обновления…";
+"Quit" = "Завершить";
+
+/* Window Titles */
+"Welcome to Barly" = "Добро пожаловать в Barly";
+
+/* Alerts */
+"Separator in Wrong Position" = "Разделитель в неправильной позиции";
+"The separator is on the wrong side. Please drag the separator (|) to the left of the arrow icon in your status bar for Barly to work correctly." = "Разделитель находится не на той стороне. Перетащите разделитель (|) влево от значка стрелки в строке состояния, чтобы Barly работал правильно.";
+"OK" = "ОК";
+
+/* Preferences View */
+"Barly is now running. Reorder status bar icons by ⌘-dragging. Drag icons to the left of the separator  |  to hide them." = "Barly запущен. Перетаскивайте значки строки состояния с зажатой клавишей ⌘ для изменения порядка. Перетащите значки влево от разделителя  |  чтобы скрыть их.";
+"Right-click (or ⌃-click) the arrow icon to show the Barly menu." = "Щёлкните правой кнопкой мыши (или ⌃-клик) по значку стрелки, чтобы открыть меню Barly.";
+"Auto-collapse after:" = "Автоматически сворачивать через:";
+"5 seconds" = "5 секунд";
+"10 seconds" = "10 секунд";
+"15 seconds" = "15 секунд";
+"30 seconds" = "30 секунд";
+"1 minute" = "1 минуту";
+"Enable auto-collapse" = "Включить автоматическое сворачивание";
+"Fully expand status bar (shows Dock icon temporarily)" = "Полностью развернуть строку состояния (временно показывает значок в Dock)";
+"Show this window when starting Barly" = "Показывать это окно при запуске Barly";
+"Close" = "Закрыть";
+
+/* Status Bar Mock */
+"Hidden" = "Скрыто";
+"Shown" = "Видимо";

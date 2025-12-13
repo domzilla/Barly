@@ -1,0 +1,40 @@
+/*
+  Localizable.strings
+  Barly
+
+  Japanese
+*/
+
+/* Menu Items */
+"Show Notch" = "ノッチを表示";
+"Hide Notch" = "ノッチを隠す";
+"Preferences..." = "環境設定…";
+"About Barly" = "Barlyについて";
+"Check for Updates..." = "アップデートを確認…";
+"Quit" = "終了";
+
+/* Window Titles */
+"Welcome to Barly" = "Barlyへようこそ";
+
+/* Alerts */
+"Separator in Wrong Position" = "セパレーターの位置が正しくありません";
+"The separator is on the wrong side. Please drag the separator (|) to the left of the arrow icon in your status bar for Barly to work correctly." = "セパレーターが間違った位置にあります。Barlyが正しく動作するように、セパレーター（|）をステータスバーの矢印アイコンの左側にドラッグしてください。";
+"OK" = "OK";
+
+/* Preferences View */
+"Barly is now running. Reorder status bar icons by ⌘-dragging. Drag icons to the left of the separator  |  to hide them." = "Barlyが実行中です。⌘キーを押しながらドラッグしてステータスバーのアイコンを並べ替えます。アイコンをセパレーター  |  の左側にドラッグすると非表示になります。";
+"Right-click (or ⌃-click) the arrow icon to show the Barly menu." = "矢印アイコンを右クリック（または⌃キーを押しながらクリック）するとBarlyメニューが表示されます。";
+"Auto-collapse after:" = "自動で折りたたむまでの時間：";
+"5 seconds" = "5秒";
+"10 seconds" = "10秒";
+"15 seconds" = "15秒";
+"30 seconds" = "30秒";
+"1 minute" = "1分";
+"Enable auto-collapse" = "自動折りたたみを有効にする";
+"Fully expand status bar (shows Dock icon temporarily)" = "ステータスバーを完全に展開（Dockアイコンを一時的に表示）";
+"Show this window when starting Barly" = "Barly起動時にこのウィンドウを表示";
+"Close" = "閉じる";
+
+/* Status Bar Mock */
+"Hidden" = "非表示";
+"Shown" = "表示";

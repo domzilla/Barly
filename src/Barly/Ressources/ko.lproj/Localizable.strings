@@ -1,0 +1,40 @@
+/*
+  Localizable.strings
+  Barly
+
+  Korean
+*/
+
+/* Menu Items */
+"Show Notch" = "노치 표시";
+"Hide Notch" = "노치 숨기기";
+"Preferences..." = "환경설정…";
+"About Barly" = "Barly에 관하여";
+"Check for Updates..." = "업데이트 확인…";
+"Quit" = "종료";
+
+/* Window Titles */
+"Welcome to Barly" = "Barly에 오신 것을 환영합니다";
+
+/* Alerts */
+"Separator in Wrong Position" = "구분선 위치가 잘못되었습니다";
+"The separator is on the wrong side. Please drag the separator (|) to the left of the arrow icon in your status bar for Barly to work correctly." = "구분선이 잘못된 위치에 있습니다. Barly가 올바르게 작동하려면 구분선(|)을 상태 표시줄의 화살표 아이콘 왼쪽으로 드래그하세요.";
+"OK" = "확인";
+
+/* Preferences View */
+"Barly is now running. Reorder status bar icons by ⌘-dragging. Drag icons to the left of the separator  |  to hide them." = "Barly가 실행 중입니다. ⌘키를 누른 상태에서 드래그하여 상태 표시줄 아이콘을 재정렬하세요. 아이콘을 구분선  |  왼쪽으로 드래그하면 숨겨집니다.";
+"Right-click (or ⌃-click) the arrow icon to show the Barly menu." = "화살표 아이콘을 우클릭(또는 ⌃-클릭)하면 Barly 메뉴가 표시됩니다.";
+"Auto-collapse after:" = "자동 접기 시간:";
+"5 seconds" = "5초";
+"10 seconds" = "10초";
+"15 seconds" = "15초";
+"30 seconds" = "30초";
+"1 minute" = "1분";
+"Enable auto-collapse" = "자동 접기 활성화";
+"Fully expand status bar (shows Dock icon temporarily)" = "상태 표시줄 완전히 펼치기 (Dock 아이콘 일시적으로 표시)";
+"Show this window when starting Barly" = "Barly 시작 시 이 창 표시";
+"Close" = "닫기";
+
+/* Status Bar Mock */
+"Hidden" = "숨김";
+"Shown" = "표시";
