@@ -38,17 +38,18 @@ The app uses two `NSStatusItem`s:
 - **Arrow item** - Toggle button (right side), handles click events
 - **Separator item** - Pipe icon that expands to hide items (left side)
 
-Collapse works by setting the separator's length to 10,000 pixels, pushing other status bar items off-screen. The separator must be positioned to the LEFT of the arrow for this to work (validated via `isSeparatorValidPosition`).
+Collapse works by setting the separator's length to 10,000 pixels, pushing other status bar items off-screen. The separator must be positioned to the LEFT of the arrow for this to work (validated via `isSeparatorValidPosition`). If the separator is in the wrong position, an alert is shown to the user explaining how to fix it.
 
 ### Key Components
 
-- **MenuController** (`src/Barly/Classes/Controllers/MenuController.swift`) - Context menu and preferences window management
-- **DisplayModeManager** (`src/Barly/Classes/Utilities/DisplayModeManager.swift`) - Display mode switching for notch hiding
-- **DeviceInformation** (`src/Barly/Classes/Utilities/DeviceInformation.swift`) - Static device information (model identifier, notch detection)
+- **MenuController** (`src/Barly/Classes/Controllers/MenuController.swift`) - Context menu and preferences window management. Uses `NSMenuItemValidation` to disable notch toggle when built-in display is inactive.
+- **DisplayModeManager** (`src/Barly/Classes/Utilities/DisplayModeManager.swift`) - Display mode switching for notch hiding. Includes `isBuiltInDisplayActive` to detect lid closed state.
+- **DeviceInformation** (`src/Barly/Classes/Utilities/DeviceInformation.swift`) - Static device information (model identifier, notch detection via hardcoded model list)
 - **ActivationPolicyManager** (`src/Barly/Classes/Utilities/ActivationPolicyManager.swift`) - Manages full expand feature (dock icon and empty menu bar)
 - **HotkeyManager** (`src/Barly/Classes/Utilities/HotkeyManager.swift`) - Global hotkey (Cmd+Option+B) using Carbon API
 - **Preferences** (`src/Barly/Classes/Models/Preferences.swift`) - UserDefaults keys and defaults
 - **PreferencesView** (`src/Barly/Classes/Views/PreferencesView.swift`) - SwiftUI preferences window hosted in NSWindow
+- **StatusBarMockView** (`src/Barly/Classes/Views/StatusBarMockView.swift`) - Visual mock of status bar showing "Hidden" and "Shown" labels. Uses `PreferenceKey` and `anchorPreference` to align labels with separator.
 
 ### Preferences
 
