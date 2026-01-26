@@ -1,11 +1,52 @@
-# CLAUDE.md
+# AGENTS.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+- **App**: Barly - macOS status bar management utility
+- **Version**: 1.0
+- **Bundle ID**: net.domzilla.barly
+- **Deployment Target**: macOS 15.6 (Sequoia)
+- **Swift Version**: 6.1
+- **Dependencies**: None (pure SwiftUI + AppKit)
 
 ## Naming Convention
 
 - **Menu Bar**: The left side of the top bar showing app menus (App Name, File, Edit, View, etc.)
 - **Status Bar**: The right side of the top bar where icons live (system icons, third-party app icons)
+
+## Project Structure
+
+```
+Barly/
+├── src/
+│   ├── Barly.xcodeproj/           # Xcode project
+│   └── Barly/
+│       ├── BarlyApp.swift         # @main entry point
+│       ├── Classes/
+│       │   ├── AppDelegate.swift
+│       │   ├── Controllers/
+│       │   │   ├── StatusBarController.swift
+│       │   │   └── MenuController.swift
+│       │   ├── Models/
+│       │   │   └── Preferences.swift
+│       │   ├── Utilities/
+│       │   │   ├── HotkeyManager.swift
+│       │   │   ├── DisplayModeManager.swift
+│       │   │   ├── ActivationPolicyManager.swift
+│       │   │   └── DeviceInformation.swift
+│       │   └── Views/
+│       │       ├── PreferencesView.swift
+│       │       └── StatusBarMockView.swift
+│       └── Ressources/            # Localization (12 languages)
+├── tools/
+│   └── Clutter/                   # Testing helper app
+├── assets/                        # Icons and design files
+├── AGENTS.md                      # This file
+├── CLAUDE.md -> AGENTS.md         # Symlink
+└── README.md                      # GitHub readme
+```
 
 ## Build Commands
 
@@ -42,14 +83,17 @@ Collapse works by setting the separator's length to 10,000 pixels, pushing other
 
 ### Key Components
 
-- **MenuController** (`src/Barly/Classes/Controllers/MenuController.swift`) - Context menu and preferences window management. Uses `NSMenuItemValidation` to disable notch toggle when built-in display is inactive.
-- **DisplayModeManager** (`src/Barly/Classes/Utilities/DisplayModeManager.swift`) - Display mode switching for notch hiding. Includes `isBuiltInDisplayActive` to detect lid closed state.
-- **DeviceInformation** (`src/Barly/Classes/Utilities/DeviceInformation.swift`) - Static device information (model identifier, notch detection via hardcoded model list)
-- **ActivationPolicyManager** (`src/Barly/Classes/Utilities/ActivationPolicyManager.swift`) - Manages full expand feature (dock icon and empty menu bar)
-- **HotkeyManager** (`src/Barly/Classes/Utilities/HotkeyManager.swift`) - Global hotkey (Cmd+Option+B) using Carbon API
-- **Preferences** (`src/Barly/Classes/Models/Preferences.swift`) - UserDefaults keys and defaults
-- **PreferencesView** (`src/Barly/Classes/Views/PreferencesView.swift`) - SwiftUI preferences window hosted in NSWindow
-- **StatusBarMockView** (`src/Barly/Classes/Views/StatusBarMockView.swift`) - Visual mock of status bar showing "Hidden" and "Shown" labels. Uses `PreferenceKey` and `anchorPreference` to align labels with separator.
+| Component | Path | Description |
+|-----------|------|-------------|
+| **StatusBarController** | `Controllers/StatusBarController.swift` | Core hide/show logic, manages two NSStatusItems |
+| **MenuController** | `Controllers/MenuController.swift` | Context menu, preferences window. Uses `NSMenuItemValidation` for notch toggle |
+| **DisplayModeManager** | `Utilities/DisplayModeManager.swift` | Display mode switching for notch hiding. Detects lid closed state |
+| **DeviceInformation** | `Utilities/DeviceInformation.swift` | Model identifier, notch detection (25+ Mac models) |
+| **ActivationPolicyManager** | `Utilities/ActivationPolicyManager.swift` | Full expand feature (dock icon + empty menu bar) |
+| **HotkeyManager** | `Utilities/HotkeyManager.swift` | Global hotkey (Cmd+Option+B) via Carbon API |
+| **Preferences** | `Models/Preferences.swift` | UserDefaults keys and defaults |
+| **PreferencesView** | `Views/PreferencesView.swift` | SwiftUI preferences window (640x420) |
+| **StatusBarMockView** | `Views/StatusBarMockView.swift` | Visual mock with "Hidden"/"Shown" labels using PreferenceKey |
 
 ### Preferences
 
@@ -59,21 +103,32 @@ Stored via `@AppStorage`/`UserDefaults`:
 - `isFullExpandEnabled` (default: true) - Shows dock icon and empty menu bar when expanded
 - `showPreferencesOnLaunch` (default: true)
 
+### Notch Support
+
+`DeviceInformation.swift` contains a hardcoded list of Mac models with notches:
+- MacBook Air 13"/15" (M2, M3, M4)
+- MacBook Pro 14"/16" (M1 Pro/Max through M5)
+
+The notch hide feature uses `DisplayModeManager` to switch to a 16:10 display mode that doesn't use the notch area.
+
 ### Localization
 
 Localization files are in `src/Barly/Ressources/`. Supported languages:
-- English (`en.lproj`)
-- German (`de.lproj`)
-- French (`fr.lproj`)
-- Spanish (`es.lproj`)
-- Italian (`it.lproj`)
-- Dutch (`nl.lproj`)
-- Japanese (`ja.lproj`)
-- Korean (`ko.lproj`)
-- Portuguese (`pt.lproj`)
-- Brazilian Portuguese (`pt-BR.lproj`)
-- Russian (`ru.lproj`)
-- Simplified Chinese (`zh-Hans.lproj`)
+
+| Language | Folder |
+|----------|--------|
+| English | `en.lproj` |
+| German | `de.lproj` |
+| French | `fr.lproj` |
+| Spanish | `es.lproj` |
+| Italian | `it.lproj` |
+| Dutch | `nl.lproj` |
+| Japanese | `ja.lproj` |
+| Korean | `ko.lproj` |
+| Portuguese | `pt.lproj` |
+| Brazilian Portuguese | `pt-BR.lproj` |
+| Russian | `ru.lproj` |
+| Simplified Chinese | `zh-Hans.lproj` |
 
 All user-facing strings use `String(localized:)` for localization support.
 
@@ -88,3 +143,11 @@ Helper app for testing Barly with many menu bar and status bar items. Provides b
 ```bash
 xcodebuild -project tools/Clutter/Clutter.xcodeproj -scheme Clutter -configuration Debug build
 ```
+
+## Assets
+
+Design assets are in `assets/`:
+- `Icon_barly.png` - App icon (1024x1024)
+- `collapse.pdf`, `expand.pdf` - Arrow icons for status bar
+- `seprator.pdf` - Separator/pipe icon
+- `Icon.psd` - Master Photoshop design file
