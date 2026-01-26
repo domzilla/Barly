@@ -10,7 +10,6 @@ import Sparkle
 
 @MainActor
 class StatusBarController: NSObject {
-
     // MARK: - Status Bar Items
 
     /// The arrow button for expand/collapse
@@ -27,18 +26,17 @@ class StatusBarController: NSObject {
     private var autoCollapseTimer: Timer?
 
     private let separatorVisibleLength: CGFloat = 20
-    private let separatorExpandedLength: CGFloat = 10_000
+    private let separatorExpandedLength: CGFloat = 10000
 
     private var isCollapsed: Bool {
-        separatorItem.length == separatorExpandedLength
+        self.separatorItem.length == self.separatorExpandedLength
     }
 
     /// Check if separator is in valid position (to the left of arrow)
     private var isSeparatorValidPosition: Bool {
         guard
             let arrowX = arrowItem.button?.window?.frame.origin.x,
-            let separatorX = separatorItem.button?.window?.frame.origin.x
-        else { return false }
+            let separatorX = separatorItem.button?.window?.frame.origin.x else { return false }
 
         // Separator should be to the LEFT of arrow (lower X value)
         return separatorX < arrowX
@@ -49,19 +47,19 @@ class StatusBarController: NSObject {
     init(updaterController: SPUStandardUpdaterController) {
         self.menuController = MenuController(updaterController: updaterController)
         super.init()
-        setupUI()
-        setupDisplayModeManager()
+        self.setupUI()
+        self.setupDisplayModeManager()
 
         // Auto-collapse after 1 second on launch
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
             self?.collapseStatusBar()
         }
 
-        showPreferencesOnLaunchIfNeeded()
+        self.showPreferencesOnLaunchIfNeeded()
     }
 
     private func setupDisplayModeManager() {
-        menuController.displayModeManager = displayModeManager
+        self.menuController.displayModeManager = self.displayModeManager
     }
 
     private func setupUI() {
@@ -69,16 +67,16 @@ class StatusBarController: NSObject {
         if let button = separatorItem.button {
             button.image = NSImage(named: "seprator")
         }
-        separatorItem.autosaveName = "barly_separator"
+        self.separatorItem.autosaveName = "barly_separator"
 
         // Setup arrow button - created second, will be on the right
         if let button = arrowItem.button {
             button.image = NSImage(named: "collapse")
             button.target = self
-            button.action = #selector(arrowButtonClicked(_:))
+            button.action = #selector(self.arrowButtonClicked(_:))
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
-        arrowItem.autosaveName = "barly_arrow"
+        self.arrowItem.autosaveName = "barly_arrow"
     }
 
     private func showPreferencesOnLaunchIfNeeded() {
@@ -86,13 +84,14 @@ class StatusBarController: NSObject {
             ?? PreferenceDefaults.showPreferencesOnLaunch
 
         if showOnLaunch {
-            menuController.showPreferencesWindow()
+            self.menuController.showPreferencesWindow()
         }
     }
 
     // MARK: - Expand/Collapse
 
-    @objc private func arrowButtonClicked(_ sender: NSStatusBarButton) {
+    @objc
+    private func arrowButtonClicked(_: NSStatusBarButton) {
         guard let event = NSApp.currentEvent else { return }
 
         let isRightClick = event.type == .rightMouseUp
@@ -100,81 +99,85 @@ class StatusBarController: NSObject {
 
         if isRightClick || isControlClick {
             // Show context menu on right-click or control-click
-            arrowItem.menu = menuController.createContextMenu()
-            arrowItem.button?.performClick(nil)
-            arrowItem.menu = nil
+            self.arrowItem.menu = self.menuController.createContextMenu()
+            self.arrowItem.button?.performClick(nil)
+            self.arrowItem.menu = nil
         } else {
             // Toggle expand/collapse on left-click
-            toggleExpandCollapse()
+            self.toggleExpandCollapse()
         }
     }
 
     func toggleExpandCollapse() {
-        if isCollapsed {
-            expandStatusBar()
+        if self.isCollapsed {
+            self.expandStatusBar()
         } else {
-            if !isSeparatorValidPosition {
-                showInvalidPositionAlert()
+            if !self.isSeparatorValidPosition {
+                self.showInvalidPositionAlert()
             }
-            collapseStatusBar()
+            self.collapseStatusBar()
         }
     }
 
     private func showInvalidPositionAlert() {
         let alert = NSAlert()
         alert.messageText = String(localized: "Separator in Wrong Position")
-        alert.informativeText = String(localized: "The separator is on the wrong side. Please drag the separator (|) to the left of the arrow icon in your status bar for Barly to work correctly.")
+        alert
+            .informativeText =
+            String(
+                localized: "The separator is on the wrong side. Please drag the separator (|) to the left of the arrow icon in your status bar for Barly to work correctly."
+            )
         alert.alertStyle = .warning
         alert.addButton(withTitle: String(localized: "OK"))
         alert.runModal()
     }
 
     func restoreDisplayModeIfNeeded() {
-        displayModeManager.restoreOriginalModeIfNeeded()
+        self.displayModeManager.restoreOriginalModeIfNeeded()
     }
 
     private func collapseStatusBar() {
-        guard isSeparatorValidPosition, !isCollapsed else {
-            startAutoCollapseTimerIfNeeded()
+        guard self.isSeparatorValidPosition, !self.isCollapsed else {
+            self.startAutoCollapseTimerIfNeeded()
             return
         }
 
-        separatorItem.length = separatorExpandedLength
+        self.separatorItem.length = self.separatorExpandedLength
 
         if let button = arrowItem.button {
             button.image = NSImage(named: "expand")
         }
 
-        activationPolicyManager.deactivate()
+        self.activationPolicyManager.deactivate()
     }
 
     private func expandStatusBar() {
-        guard isCollapsed else { return }
+        guard self.isCollapsed else { return }
 
-        separatorItem.length = separatorVisibleLength
+        self.separatorItem.length = self.separatorVisibleLength
 
         if let button = arrowItem.button {
             button.image = NSImage(named: "collapse")
         }
 
-        activationPolicyManager.activateIfEnabled()
-        startAutoCollapseTimerIfNeeded()
+        self.activationPolicyManager.activateIfEnabled()
+        self.startAutoCollapseTimerIfNeeded()
     }
 
     // MARK: - Auto-Collapse Timer
 
     private func startAutoCollapseTimerIfNeeded() {
-        autoCollapseTimer?.invalidate()
+        self.autoCollapseTimer?.invalidate()
 
         let isAutoCollapseEnabled = UserDefaults.standard.object(forKey: PreferenceKeys.isAutoCollapseEnabled) as? Bool
             ?? PreferenceDefaults.isAutoCollapseEnabled
 
-        guard isAutoCollapseEnabled, !isCollapsed else { return }
+        guard isAutoCollapseEnabled, !self.isCollapsed else { return }
 
         let delay = UserDefaults.standard.object(forKey: PreferenceKeys.autoCollapseDelay) as? Int
             ?? PreferenceDefaults.autoCollapseDelay
 
-        autoCollapseTimer = Timer.scheduledTimer(
+        self.autoCollapseTimer = Timer.scheduledTimer(
             withTimeInterval: TimeInterval(delay),
             repeats: false
         ) { [weak self] _ in

@@ -16,16 +16,16 @@ struct ContentView: View {
                 VStack(spacing: 12) {
                     HStack(spacing: 12) {
                         Button("Add") {
-                            appDelegate.mainMenuController.addMenuItem()
+                            self.appDelegate.mainMenuController.addMenuItem()
                         }
 
                         Button("Remove") {
-                            appDelegate.mainMenuController.removeMenuItem()
+                            self.appDelegate.mainMenuController.removeMenuItem()
                         }
-                        .disabled(appDelegate.mainMenuController.count == 0)
+                        .disabled(self.appDelegate.mainMenuController.count == 0)
                     }
 
-                    Text("Count: \(appDelegate.mainMenuController.count)")
+                    Text("Count: \(self.appDelegate.mainMenuController.count)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -36,16 +36,16 @@ struct ContentView: View {
                 VStack(spacing: 12) {
                     HStack(spacing: 12) {
                         Button("Add") {
-                            appDelegate.statusBarItemController.addStatusItem()
+                            self.appDelegate.statusBarItemController.addStatusItem()
                         }
 
                         Button("Remove") {
-                            appDelegate.statusBarItemController.removeStatusItem()
+                            self.appDelegate.statusBarItemController.removeStatusItem()
                         }
-                        .disabled(appDelegate.statusBarItemController.count == 0)
+                        .disabled(self.appDelegate.statusBarItemController.count == 0)
                     }
 
-                    Text("Count: \(appDelegate.statusBarItemController.count)")
+                    Text("Count: \(self.appDelegate.statusBarItemController.count)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -60,7 +60,7 @@ struct ContentView: View {
 // MARK: - Environment Key for AppDelegate
 
 private struct AppDelegateKey: EnvironmentKey {
-    static let defaultValue: AppDelegate = AppDelegate()
+    static let defaultValue: AppDelegate = .init()
 }
 
 extension EnvironmentValues {

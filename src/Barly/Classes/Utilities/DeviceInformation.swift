@@ -9,7 +9,6 @@ import Foundation
 
 /// Provides static device information that is queried once and cached.
 enum DeviceInformation {
-
     /// The Mac model identifier (e.g., "MacBookPro18,1")
     static let modelIdentifier: String? = {
         let process = Process()
@@ -53,7 +52,7 @@ enum DeviceInformation {
             "MacBookPro18,1", "MacBookPro18,2",
             "Mac14,6", "Mac14,10",
             "Mac15,7", "Mac15,9", "Mac15,11",
-            "Mac16,5", "Mac16,7"
+            "Mac16,5", "Mac16,7",
         ]
 
         return notchedModels.contains(model)

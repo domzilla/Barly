@@ -11,7 +11,6 @@ import Cocoa
 /// and display an empty menu bar, giving more space for status bar items.
 @MainActor
 class ActivationPolicyManager {
-
     // MARK: - Properties
 
     private var resignActiveObserver: NSObjectProtocol?
@@ -26,7 +25,7 @@ class ActivationPolicyManager {
 
     init() {
         // Observe when app loses focus to deactivate
-        resignActiveObserver = NotificationCenter.default.addObserver(
+        self.resignActiveObserver = NotificationCenter.default.addObserver(
             forName: NSApplication.didResignActiveNotification,
             object: nil,
             queue: .main
@@ -52,7 +51,7 @@ class ActivationPolicyManager {
         )
         appMenu.addItem(quitItem)
 
-        emptyMenu = mainMenu
+        self.emptyMenu = mainMenu
     }
 
     deinit {
@@ -65,7 +64,7 @@ class ActivationPolicyManager {
 
     private func performActivation() {
         // Set empty menu to override SwiftUI's default menus
-        NSApp.mainMenu = emptyMenu
+        NSApp.mainMenu = self.emptyMenu
 
         // Use the newer activation API
         if let frontApp = NSWorkspace.shared.frontmostApplication {
@@ -84,12 +83,12 @@ class ActivationPolicyManager {
         let isFullExpandEnabled = UserDefaults.standard.object(forKey: PreferenceKeys.isFullExpandEnabled) as? Bool
             ?? PreferenceDefaults.isFullExpandEnabled
 
-        guard isFullExpandEnabled, !isActive else { return }
+        guard isFullExpandEnabled, !self.isActive else { return }
 
-        if hasActivatedBefore {
-            performActivation()
+        if self.hasActivatedBefore {
+            self.performActivation()
         } else {
-            hasActivatedBefore = true
+            self.hasActivatedBefore = true
             // Hack: For first activation, activate the Dock first, then our app
             // This is needed for proper activation in SwiftUI apps
             NSRunningApplication.runningApplications(withBundleIdentifier: "com.apple.dock").first?.activate()
@@ -102,7 +101,7 @@ class ActivationPolicyManager {
     /// Deactivates full expand mode.
     /// Switches back to accessory activation policy and deactivates the app.
     func deactivate() {
-        guard isActive else { return }
+        guard self.isActive else { return }
 
         // Yield activation to another app
         if let nextApp = NSWorkspace.shared.runningApplications.first(where: { $0 != .current }) {

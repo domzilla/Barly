@@ -11,7 +11,6 @@ import DZFoundation
 
 @MainActor
 class DisplayModeManager {
-
     // MARK: - Properties
 
     private var originalMode: CGDisplayMode?
@@ -21,7 +20,7 @@ class DisplayModeManager {
     init() {
         // Save the original display mode on launch
         let displayID = CGMainDisplayID()
-        originalMode = CGDisplayCopyDisplayMode(displayID)
+        self.originalMode = CGDisplayCopyDisplayMode(displayID)
     }
 
     // MARK: - Public Methods
@@ -45,21 +44,22 @@ class DisplayModeManager {
     }
 
     func toggle() {
-        if isCurrentResolution16by10() {
-            showNotch()
+        if self.isCurrentResolution16by10() {
+            self.showNotch()
         } else {
-            hideNotch()
+            self.hideNotch()
         }
     }
 
     func restoreOriginalModeIfNeeded() {
         let displayID = CGMainDisplayID()
-        guard let original = originalMode,
-              let current = CGDisplayCopyDisplayMode(displayID) else { return }
+        guard
+            let original = originalMode,
+            let current = CGDisplayCopyDisplayMode(displayID) else { return }
 
         // Only restore if the mode has changed
         if current.width != original.width || current.height != original.height {
-            switchDisplayMode(displayID: displayID, to: original)
+            self.switchDisplayMode(displayID: displayID, to: original)
         }
     }
 
@@ -74,7 +74,7 @@ class DisplayModeManager {
             return
         }
 
-        switchDisplayMode(displayID: displayID, to: notchlessMode)
+        self.switchDisplayMode(displayID: displayID, to: notchlessMode)
     }
 
     func showNotch() {
@@ -88,7 +88,7 @@ class DisplayModeManager {
             return
         }
 
-        switchDisplayMode(displayID: displayID, to: notchedMode)
+        self.switchDisplayMode(displayID: displayID, to: notchedMode)
     }
 
     // MARK: - Private Methods
@@ -115,11 +115,11 @@ class DisplayModeManager {
         // Look for a mode with same width but smaller height (16:10)
         let candidates = allModes.filter { mode in
             mode.width == currentWidth &&
-            mode.height < currentHeight &&
-            mode.isUsableForDesktopGUI()
+                mode.height < currentHeight &&
+                mode.isUsableForDesktopGUI()
         }
 
-        return selectBestMode(from: candidates, preferringRefreshRate: currentRefresh, preferLargerHeight: true)
+        return self.selectBestMode(from: candidates, preferringRefreshRate: currentRefresh, preferLargerHeight: true)
     }
 
     private func findNotchedMode(for displayID: CGDirectDisplayID, currentMode: CGDisplayMode) -> CGDisplayMode? {
@@ -132,11 +132,11 @@ class DisplayModeManager {
         // Look for a mode with same width but larger height (notched/native)
         let candidates = allModes.filter { mode in
             mode.width == currentWidth &&
-            mode.height > currentHeight &&
-            mode.isUsableForDesktopGUI()
+                mode.height > currentHeight &&
+                mode.isUsableForDesktopGUI()
         }
 
-        return selectBestMode(from: candidates, preferringRefreshRate: currentRefresh, preferLargerHeight: false)
+        return self.selectBestMode(from: candidates, preferringRefreshRate: currentRefresh, preferLargerHeight: false)
     }
 
     private func getAllDisplayModes(for displayID: CGDirectDisplayID) -> [CGDisplayMode]? {
@@ -144,7 +144,13 @@ class DisplayModeManager {
         return CGDisplayCopyAllDisplayModes(displayID, options) as? [CGDisplayMode]
     }
 
-    private func selectBestMode(from candidates: [CGDisplayMode], preferringRefreshRate targetRefresh: Double, preferLargerHeight: Bool) -> CGDisplayMode? {
+    private func selectBestMode(
+        from candidates: [CGDisplayMode],
+        preferringRefreshRate targetRefresh: Double,
+        preferLargerHeight: Bool
+    )
+        -> CGDisplayMode?
+    {
         let sorted = candidates.sorted { a, b in
             // Sort by height
             if a.height != b.height {
@@ -167,7 +173,7 @@ class DisplayModeManager {
         var config: CGDisplayConfigRef?
 
         let beginError = CGBeginDisplayConfiguration(&config)
-        guard beginError == .success, let config = config else {
+        guard beginError == .success, let config else {
             DZLog("Failed to begin display configuration: \(beginError)")
             return false
         }

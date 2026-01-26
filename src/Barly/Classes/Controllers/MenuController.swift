@@ -5,13 +5,12 @@
 //  Created by Dominic Rodemer on 09.12.25.
 //
 
-import SwiftUI
 import Cocoa
 import Sparkle
+import SwiftUI
 
 @MainActor
 class MenuController: NSObject, NSMenuItemValidation {
-
     // MARK: - Properties
 
     private var preferencesWindow: NSWindow?
@@ -32,10 +31,10 @@ class MenuController: NSObject, NSMenuItemValidation {
 
         // Add "Hide Notch" / "Show Notch" toggle only if Mac has a notch
         if DeviceInformation.hasNotch {
-            let is16by10 = isCurrentResolution16by10()
+            let is16by10 = self.isCurrentResolution16by10()
             let notchItem = NSMenuItem(
                 title: is16by10 ? String(localized: "Show Notch") : String(localized: "Hide Notch"),
-                action: #selector(toggleNotch(_:)),
+                action: #selector(self.toggleNotch(_:)),
                 keyEquivalent: ""
             )
             notchItem.target = self
@@ -95,33 +94,38 @@ class MenuController: NSObject, NSMenuItemValidation {
     // MARK: - Menu Validation
 
     func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        if menuItem.action == #selector(toggleNotch(_:)) {
+        if menuItem.action == #selector(self.toggleNotch(_:)) {
             // Disable when built-in display is not active (lid closed with external monitor)
-            return displayModeManager?.isBuiltInDisplayActive ?? false
+            return self.displayModeManager?.isBuiltInDisplayActive ?? false
         }
         return true
     }
 
     // MARK: - Menu Actions
 
-    @objc private func toggleNotch(_ sender: Any?) {
-        displayModeManager?.toggle()
+    @objc
+    private func toggleNotch(_: Any?) {
+        self.displayModeManager?.toggle()
     }
 
-    @objc private func showPreferences(_ sender: Any?) {
-        showPreferencesWindow()
+    @objc
+    private func showPreferences(_: Any?) {
+        self.showPreferencesWindow()
     }
 
-    @objc private func showAbout(_ sender: Any?) {
+    @objc
+    private func showAbout(_: Any?) {
         NSApp.activate(ignoringOtherApps: true)
         NSApp.orderFrontStandardAboutPanel(nil)
     }
 
-    @objc private func checkForUpdates(_ sender: Any?) {
-        updaterController.checkForUpdates(nil)
+    @objc
+    private func checkForUpdates(_: Any?) {
+        self.updaterController.checkForUpdates(nil)
     }
 
-    @objc private func quit(_ sender: Any?) {
+    @objc
+    private func quit(_: Any?) {
         NSApp.terminate(nil)
     }
 
@@ -130,7 +134,7 @@ class MenuController: NSObject, NSMenuItemValidation {
     func showPreferencesWindow() {
         NSApp.activate(ignoringOtherApps: true)
 
-        if preferencesWindow == nil {
+        if self.preferencesWindow == nil {
             let contentView = PreferencesView()
             let hostingController = NSHostingController(rootView: contentView)
 
@@ -140,9 +144,9 @@ class MenuController: NSObject, NSMenuItemValidation {
             window.setContentSize(NSSize(width: 640, height: 420))
             window.center()
 
-            preferencesWindow = window
+            self.preferencesWindow = window
         }
 
-        preferencesWindow?.makeKeyAndOrderFront(nil)
+        self.preferencesWindow?.makeKeyAndOrderFront(nil)
     }
 }

@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct PreferencesView: View {
-    @AppStorage(PreferenceKeys.isAutoCollapseEnabled) private var isAutoCollapseEnabled = PreferenceDefaults.isAutoCollapseEnabled
+    @AppStorage(PreferenceKeys.isAutoCollapseEnabled) private var isAutoCollapseEnabled = PreferenceDefaults
+        .isAutoCollapseEnabled
     @AppStorage(PreferenceKeys.autoCollapseDelay) private var autoCollapseDelay = PreferenceDefaults.autoCollapseDelay
-    @AppStorage(PreferenceKeys.showPreferencesOnLaunch) private var showPreferencesOnLaunch = PreferenceDefaults.showPreferencesOnLaunch
-    @AppStorage(PreferenceKeys.isFullExpandEnabled) private var isFullExpandEnabled = PreferenceDefaults.isFullExpandEnabled
+    @AppStorage(PreferenceKeys.showPreferencesOnLaunch) private var showPreferencesOnLaunch = PreferenceDefaults
+        .showPreferencesOnLaunch
+    @AppStorage(PreferenceKeys.isFullExpandEnabled) private var isFullExpandEnabled = PreferenceDefaults
+        .isFullExpandEnabled
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -22,9 +25,11 @@ struct PreferencesView: View {
                     .frame(width: 100, height: 100)
 
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Barly is now running. Reorder status bar icons by \u{2318}-dragging. Drag icons to the left of the separator  |  to hide them.")
-                        .font(.system(size: 13))
-                        .fixedSize(horizontal: false, vertical: true)
+                    Text(
+                        "Barly is now running. Reorder status bar icons by \u{2318}-dragging. Drag icons to the left of the separator  |  to hide them."
+                    )
+                    .font(.system(size: 13))
+                    .fixedSize(horizontal: false, vertical: true)
 
                     Text("Right-click (or \u{2303}-click) the arrow icon to show the Barly menu.")
                         .font(.system(size: 13, weight: .bold))
@@ -45,7 +50,7 @@ struct PreferencesView: View {
                 Text("Auto-collapse after:")
                     .font(.system(size: 13))
 
-                Picker("", selection: $autoCollapseDelay) {
+                Picker("", selection: self.$autoCollapseDelay) {
                     Text("5 seconds").tag(5)
                     Text("10 seconds").tag(10)
                     Text("15 seconds").tag(15)
@@ -61,13 +66,13 @@ struct PreferencesView: View {
 
             // Checkboxes
             VStack(alignment: .leading, spacing: 8) {
-                Toggle("Enable auto-collapse", isOn: $isAutoCollapseEnabled)
+                Toggle("Enable auto-collapse", isOn: self.$isAutoCollapseEnabled)
                     .font(.system(size: 13))
 
-                Toggle("Fully expand status bar (shows Dock icon temporarily)", isOn: $isFullExpandEnabled)
+                Toggle("Fully expand status bar (shows Dock icon temporarily)", isOn: self.$isFullExpandEnabled)
                     .font(.system(size: 13))
 
-                Toggle("Show this window when starting Barly", isOn: $showPreferencesOnLaunch)
+                Toggle("Show this window when starting Barly", isOn: self.$showPreferencesOnLaunch)
                     .font(.system(size: 13))
             }
 

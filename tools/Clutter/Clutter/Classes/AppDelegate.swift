@@ -11,7 +11,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let mainMenuController = MainMenuController()
     let statusBarItemController = StatusBarItemController()
 
-    func applicationDidFinishLaunching(_ notification: Notification) {
-
-    }
+    func applicationDidFinishLaunching(_: Notification) {}
 }

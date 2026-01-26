@@ -18,7 +18,7 @@ class HotkeyManager {
     init(callback: @escaping () -> Void) {
         self.callback = callback
         HotkeyManager.sharedInstance = self
-        registerHotkey()
+        self.registerHotkey()
     }
 
     deinit {
@@ -32,7 +32,7 @@ class HotkeyManager {
         )
 
         let handler: EventHandlerUPP = { _, event, _ -> OSStatus in
-            guard let event = event else { return OSStatus(eventNotHandledErr) }
+            guard let event else { return OSStatus(eventNotHandledErr) }
 
             var hotKeyID = EventHotKeyID()
             let err = GetEventParameter(
@@ -45,7 +45,7 @@ class HotkeyManager {
                 &hotKeyID
             )
 
-            if err == noErr && hotKeyID.id == 1 {
+            if err == noErr, hotKeyID.id == 1 {
                 DispatchQueue.main.async {
                     HotkeyManager.sharedInstance?.callback()
                 }
@@ -60,7 +60,7 @@ class HotkeyManager {
             1,
             &eventType,
             nil,
-            &eventHandlerRef
+            &self.eventHandlerRef
         )
 
         // CMD + Option + B
@@ -68,7 +68,7 @@ class HotkeyManager {
         // cmdKey = 256 (0x100)
         // optionKey = 2048 (0x800)
         let hotKeyID = EventHotKeyID(
-            signature: OSType(0x42524C59), // "BRLY" as FourCharCode
+            signature: OSType(0x4252_4C59), // "BRLY" as FourCharCode
             id: 1
         )
 
@@ -80,17 +80,17 @@ class HotkeyManager {
             hotKeyID,
             GetApplicationEventTarget(),
             0,
-            &hotKeyRef
+            &self.hotKeyRef
         )
     }
 
     private func unregisterHotkey() {
-        if let hotKeyRef = hotKeyRef {
+        if let hotKeyRef {
             UnregisterEventHotKey(hotKeyRef)
             self.hotKeyRef = nil
         }
 
-        if let eventHandlerRef = eventHandlerRef {
+        if let eventHandlerRef {
             RemoveEventHandler(eventHandlerRef)
             self.eventHandlerRef = nil
         }

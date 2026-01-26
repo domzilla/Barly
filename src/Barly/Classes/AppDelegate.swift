@@ -17,22 +17,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, SPUStandardUserDriverDelegat
     var statusBarController: StatusBarController?
     var hotkeyManager: HotkeyManager?
 
-    func applicationDidFinishLaunching(_ notification: Notification) {
-        statusBarController = StatusBarController(updaterController: updaterController)
-        hotkeyManager = HotkeyManager { [weak self] in
+    func applicationDidFinishLaunching(_: Notification) {
+        self.statusBarController = StatusBarController(updaterController: self.updaterController)
+        self.hotkeyManager = HotkeyManager { [weak self] in
             Task { @MainActor in
                 self?.statusBarController?.toggleExpandCollapse()
             }
         }
     }
 
-    func applicationWillTerminate(_ notification: Notification) {
-        statusBarController?.restoreDisplayModeIfNeeded()
+    func applicationWillTerminate(_: Notification) {
+        self.statusBarController?.restoreDisplayModeIfNeeded()
     }
 
     // MARK: - SPUStandardUserDriverDelegate
 
     func supportsGentleScheduledUpdateReminders() -> Bool {
-        return true
+        true
     }
 }

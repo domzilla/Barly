@@ -14,7 +14,7 @@ struct ClutterApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.appDelegate, appDelegate)
+                .environment(\.appDelegate, self.appDelegate)
         }
         .windowResizability(.contentSize)
     }

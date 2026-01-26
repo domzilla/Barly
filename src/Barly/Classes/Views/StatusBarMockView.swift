@@ -15,7 +15,6 @@ private struct SeparatorPositionKey: PreferenceKey {
 }
 
 struct StatusBarMockView: View {
-
     private var currentDateTime: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE MMM d  HH:mm"
@@ -66,7 +65,7 @@ struct StatusBarMockView: View {
                     Text("75%")
                         .font(.system(size: 13))
                     Image(systemName: "battery.75")
-                    Text(currentDateTime)
+                    Text(self.currentDateTime)
                         .font(.system(size: 13))
                 }
                 .foregroundStyle(.tertiary)
@@ -80,7 +79,7 @@ struct StatusBarMockView: View {
             .clipShape(RoundedRectangle(cornerRadius: 6))
             .overlayPreferenceValue(SeparatorPositionKey.self) { anchor in
                 GeometryReader { geometry in
-                    if let anchor = anchor {
+                    if let anchor {
                         HStack(spacing: 4) {
                             Text("Hidden")
                             Image(systemName: "arrow.up")

@@ -20,13 +20,13 @@ class StatusBarItemController {
             button.image = NSImage(systemSymbolName: "ladybug.fill", accessibilityDescription: "Clutter item")
         }
 
-        statusItems.append(item)
-        count = statusItems.count
+        self.statusItems.append(item)
+        self.count = self.statusItems.count
     }
 
     func removeStatusItem() {
         guard let item = statusItems.popLast() else { return }
         NSStatusBar.system.removeStatusItem(item)
-        count = statusItems.count
+        self.count = self.statusItems.count
     }
 }
