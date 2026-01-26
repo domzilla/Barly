@@ -20,7 +20,7 @@ Download the latest release from the [Releases](../../releases) page.
 Or build from source:
 
 ```bash
-git clone https://github.com/domzilla/barly.git
+git clone https://github.com/domzilla/Barly.git
 cd barly
 xcodebuild -project src/Barly.xcodeproj -scheme Barly -configuration Release build
 ```
