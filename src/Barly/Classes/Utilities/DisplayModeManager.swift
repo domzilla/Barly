@@ -7,6 +7,7 @@
 
 import Cocoa
 import CoreGraphics
+import DZFoundation
 
 @MainActor
 class DisplayModeManager {
@@ -69,7 +70,7 @@ class DisplayModeManager {
 
         // Find a notchless mode (same width, smaller height - 16:10 aspect ratio)
         guard let notchlessMode = findNotchlessMode(for: displayID, currentMode: currentMode) else {
-            print("No notchless mode found")
+            DZLog("No notchless mode found")
             return
         }
 
@@ -83,7 +84,7 @@ class DisplayModeManager {
 
         // Find the notched mode (same width, larger height)
         guard let notchedMode = findNotchedMode(for: displayID, currentMode: currentMode) else {
-            print("No notched mode found")
+            DZLog("No notched mode found")
             return
         }
 
@@ -167,20 +168,20 @@ class DisplayModeManager {
 
         let beginError = CGBeginDisplayConfiguration(&config)
         guard beginError == .success, let config = config else {
-            print("Failed to begin display configuration: \(beginError)")
+            DZLog("Failed to begin display configuration: \(beginError)")
             return false
         }
 
         let configError = CGConfigureDisplayWithDisplayMode(config, displayID, mode, nil)
         guard configError == .success else {
-            print("Failed to configure display mode: \(configError)")
+            DZLog("Failed to configure display mode: \(configError)")
             CGCancelDisplayConfiguration(config)
             return false
         }
 
         let completeError = CGCompleteDisplayConfiguration(config, .forSession)
         guard completeError == .success else {
-            print("Failed to complete display configuration: \(completeError)")
+            DZLog("Failed to complete display configuration: \(completeError)")
             return false
         }
 

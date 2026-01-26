@@ -6,6 +6,25 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F26346E02F27B0F400C56D92 /* DZFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = F26346DF2F27B0F400C56D92 /* DZFoundation */; };
+		F26346E12F27B10500C56D92 /* DZFoundation in Embed Frameworks */ = {isa = PBXBuildFile; productRef = F26346DF2F27B0F400C56D92 /* DZFoundation */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F26346E22F27B10500C56D92 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F26346E12F27B10500C56D92 /* DZFoundation in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		F2649BEF2EE85633004F0C4E /* Barly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F26346E02F27B0F400C56D92 /* DZFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +75,7 @@
 				F2649BEB2EE85633004F0C4E /* Sources */,
 				F2649BEC2EE85633004F0C4E /* Frameworks */,
 				F2649BED2EE85633004F0C4E /* Resources */,
+				F26346E22F27B10500C56D92 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -65,6 +86,7 @@
 			);
 			name = Barly;
 			packageProductDependencies = (
+				F26346DF2F27B0F400C56D92 /* DZFoundation */,
 			);
 			productName = Barly;
 			productReference = F2649BEF2EE85633004F0C4E /* Barly.app */;
@@ -78,7 +100,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2610;
-				LastUpgradeCheck = 2610;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					F2649BEE2EE85633004F0C4E = {
 						CreatedOnToolsVersion = 26.1.1;
@@ -91,9 +113,23 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				"zh-Hans",
+				ja,
+				es,
+				it,
+				ko,
+				"pt-BR",
+				ru,
+				fr,
+				nl,
+				pt,
 			);
 			mainGroup = F2649BE62EE85633004F0C4E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F26346DE2F27B0F400C56D92 /* XCRemoteSwiftPackageReference "DZFoundation" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F2649BF02EE85633004F0C4E /* Products */;
 			projectDirPath = "";
@@ -335,6 +371,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F26346DE2F27B0F400C56D92 /* XCRemoteSwiftPackageReference "DZFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/domzilla/DZFoundation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F26346DF2F27B0F400C56D92 /* DZFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F26346DE2F27B0F400C56D92 /* XCRemoteSwiftPackageReference "DZFoundation" */;
+			productName = DZFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F2649BE72EE85633004F0C4E /* Project object */;
 }

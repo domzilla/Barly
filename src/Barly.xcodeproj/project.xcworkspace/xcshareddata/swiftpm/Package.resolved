@@ -1,0 +1,15 @@
+{
+  "originHash" : "fcc2e1d959c81914af894d60996aac0d690df2284bded33ed35f46071ed988d6",
+  "pins" : [
+    {
+      "identity" : "dzfoundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/domzilla/DZFoundation",
+      "state" : {
+        "revision" : "bfe543506525879ef872138f1c5541f9840a048a",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}
