@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Cocoa
+import Sparkle
 
 @MainActor
 class MenuController: NSObject, NSMenuItemValidation {
@@ -14,7 +15,15 @@ class MenuController: NSObject, NSMenuItemValidation {
     // MARK: - Properties
 
     private var preferencesWindow: NSWindow?
+    private let updaterController: SPUStandardUpdaterController
     var displayModeManager: DisplayModeManager?
+
+    // MARK: - Initialization
+
+    init(updaterController: SPUStandardUpdaterController) {
+        self.updaterController = updaterController
+        super.init()
+    }
 
     // MARK: - Context Menu
 
@@ -109,7 +118,7 @@ class MenuController: NSObject, NSMenuItemValidation {
     }
 
     @objc private func checkForUpdates(_ sender: Any?) {
-        // TODO: Implement Sparkle integration later
+        updaterController.checkForUpdates(nil)
     }
 
     @objc private func quit(_ sender: Any?) {

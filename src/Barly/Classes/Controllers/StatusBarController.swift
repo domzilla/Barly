@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import Sparkle
 
 @MainActor
 class StatusBarController: NSObject {
@@ -20,7 +21,7 @@ class StatusBarController: NSObject {
 
     // MARK: - Properties
 
-    private let menuController = MenuController()
+    private let menuController: MenuController
     private let displayModeManager = DisplayModeManager()
     private let activationPolicyManager = ActivationPolicyManager()
     private var autoCollapseTimer: Timer?
@@ -45,7 +46,8 @@ class StatusBarController: NSObject {
 
     // MARK: - Initialization
 
-    override init() {
+    init(updaterController: SPUStandardUpdaterController) {
+        self.menuController = MenuController(updaterController: updaterController)
         super.init()
         setupUI()
         setupDisplayModeManager()

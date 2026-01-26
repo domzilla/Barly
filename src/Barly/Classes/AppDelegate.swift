@@ -6,13 +6,19 @@
 //
 
 import Cocoa
+import Sparkle
 
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, SPUStandardUserDriverDelegate {
+    private lazy var updaterController = SPUStandardUpdaterController(
+        startingUpdater: true,
+        updaterDelegate: nil,
+        userDriverDelegate: self
+    )
     var statusBarController: StatusBarController?
     var hotkeyManager: HotkeyManager?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        statusBarController = StatusBarController()
+        statusBarController = StatusBarController(updaterController: updaterController)
         hotkeyManager = HotkeyManager { [weak self] in
             Task { @MainActor in
                 self?.statusBarController?.toggleExpandCollapse()
@@ -22,5 +28,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillTerminate(_ notification: Notification) {
         statusBarController?.restoreDisplayModeIfNeeded()
+    }
+
+    // MARK: - SPUStandardUserDriverDelegate
+
+    func supportsGentleScheduledUpdateReminders() -> Bool {
+        return true
     }
 }
