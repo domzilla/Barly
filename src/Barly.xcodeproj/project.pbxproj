@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F26346E02F27B0F400C56D92 /* DZFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = F26346DF2F27B0F400C56D92 /* DZFoundation */; };
 		F26346E12F27B10500C56D92 /* DZFoundation in Embed Frameworks */ = {isa = PBXBuildFile; productRef = F26346DF2F27B0F400C56D92 /* DZFoundation */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		F26346E52F27B24A00C56D92 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = F26346E42F27B24A00C56D92 /* Sparkle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +44,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F26346E02F27B0F400C56D92 /* DZFoundation in Frameworks */,
+				F26346E52F27B24A00C56D92 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +89,7 @@
 			name = Barly;
 			packageProductDependencies = (
 				F26346DF2F27B0F400C56D92 /* DZFoundation */,
+				F26346E42F27B24A00C56D92 /* Sparkle */,
 			);
 			productName = Barly;
 			productReference = F2649BEF2EE85633004F0C4E /* Barly.app */;
@@ -129,6 +132,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				F26346DE2F27B0F400C56D92 /* XCRemoteSwiftPackageReference "DZFoundation" */,
+				F26346E32F27B24A00C56D92 /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F2649BF02EE85633004F0C4E /* Products */;
@@ -381,6 +385,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		F26346E32F27B24A00C56D92 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -388,6 +400,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F26346DE2F27B0F400C56D92 /* XCRemoteSwiftPackageReference "DZFoundation" */;
 			productName = DZFoundation;
+		};
+		F26346E42F27B24A00C56D92 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F26346E32F27B24A00C56D92 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
