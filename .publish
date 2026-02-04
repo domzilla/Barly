@@ -1,0 +1,38 @@
+---
+version_source: plist
+tag_prefix: v
+release_branch: master
+git_remotes:
+- github.com
+- origin
+publishers:
+- sparkle
+post_publish_template: |
+  array(
+      APP_NAME => "Barly",
+      APP_TITLE => _("Barly"),
+      APP_DESCRIPTION => _("A lightweight macOS utility that keeps your status bar tidy."),
+      APP_VERSION => "{{version}}",
+      APP_SIZE => "{{size}}",
+      APP_ICON => "/images/logo-2x.png",
+      APP_URL => "{{url}}",
+      DOWNLOAD_URL => "/download",
+      APP_LINK_TARGET => "_blank",
+      APP_OS => $__OS_macOS,
+      APP_HIDDEN => false
+  )
+post_publish_commands:
+- nova --wait ~/Sites/Online/barly._app/www/website/config/apps.config.php
+- git -C ~/Sites/Online/barly._app add www/website/config/apps.config.php && git -C ~/Sites/Online/barly._app commit -m "Release {{version}}"
+- git -C ~/Sites/Online/barly._app push origin
+- transmit www.barly.app
+- gh release create v{{version}} sparkle/release/{{zip_name}} --title "{{app_name}} {{version}}" --notes-file sparkle/release/{{app_name}}_{{version}}.html -R domzilla/Barly
+- echo "Release {{version}} complete"
+sparkle:
+  app_name: Barly
+  s3_bucket: dr-barly-mac
+  aws_region: eu-central-1
+  release_dir: sparkle/release
+  generate_appcast: ~/bin/sparkle/generate_appcast
+  signing_account: ed25519
+  editor: nova --wait
