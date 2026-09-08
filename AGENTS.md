@@ -103,6 +103,7 @@ SwiftFormat configuration is defined in `.swiftformat` at the project root. This
 - **Status Bar**: The right side of the top bar where icons live (system icons, third-party app icons)
 
 ## Build Commands
+**MANDATORY:** Never write build output into the project directory; use Xcode's default DerivedData location or pass `-derivedDataPath` pointing outside the project tree.
 
 ```bash
 # Build from command line
