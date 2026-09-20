@@ -1,0 +1,30 @@
+/*
+  Accessibility.strings
+  Barly
+
+  Dutch
+*/
+
+/* Accessibility label for the arrow status bar item */
+"Barly" = "Barly";
+
+/* Accessibility label for the separator status bar item */
+"Barly separator" = "Barly-scheidingsteken";
+
+/* Accessibility value for the arrow status bar item when the status bar is collapsed */
+"Collapsed" = "Ingeklapt";
+
+/* Accessibility hint for the separator status bar item */
+"Drag status bar icons to the left of this separator to hide them." = "Sleep statusbalkpictogrammen naar links van dit scheidingsteken om ze te verbergen.";
+
+/* Accessibility value for the arrow status bar item when the status bar is expanded */
+"Expanded" = "Uitgevouwen";
+
+/* Accessibility hint for the arrow status bar item */
+"Hides or shows the status bar items." = "Verbergt of toont de statusbalkpictogrammen.";
+
+/* Accessibility hint for the status bar illustration */
+"Icons to the left of the separator are hidden. Icons to the right stay visible." = "Pictogrammen links van het scheidingsteken worden verborgen. Pictogrammen rechts blijven zichtbaar.";
+
+/* Accessibility label for the status bar illustration */
+"Status bar example" = "Voorbeeld van statusbalk";

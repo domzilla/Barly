@@ -1,0 +1,30 @@
+/*
+  Accessibility.strings
+  Barly
+
+  Italian
+*/
+
+/* Accessibility label for the arrow status bar item */
+"Barly" = "Barly";
+
+/* Accessibility label for the separator status bar item */
+"Barly separator" = "Separatore di Barly";
+
+/* Accessibility value for the arrow status bar item when the status bar is collapsed */
+"Collapsed" = "Compresso";
+
+/* Accessibility hint for the separator status bar item */
+"Drag status bar icons to the left of this separator to hide them." = "Trascina le icone della barra di stato a sinistra di questo separatore per nasconderle.";
+
+/* Accessibility value for the arrow status bar item when the status bar is expanded */
+"Expanded" = "Espanso";
+
+/* Accessibility hint for the arrow status bar item */
+"Hides or shows the status bar items." = "Nasconde o mostra le icone della barra di stato.";
+
+/* Accessibility hint for the status bar illustration */
+"Icons to the left of the separator are hidden. Icons to the right stay visible." = "Le icone a sinistra del separatore vengono nascoste. Quelle a destra restano visibili.";
+
+/* Accessibility label for the status bar illustration */
+"Status bar example" = "Esempio di barra di stato";

@@ -1,0 +1,30 @@
+/*
+  Accessibility.strings
+  Barly
+
+  French
+*/
+
+/* Accessibility label for the arrow status bar item */
+"Barly" = "Barly";
+
+/* Accessibility label for the separator status bar item */
+"Barly separator" = "Séparateur Barly";
+
+/* Accessibility value for the arrow status bar item when the status bar is collapsed */
+"Collapsed" = "Replié";
+
+/* Accessibility hint for the separator status bar item */
+"Drag status bar icons to the left of this separator to hide them." = "Faites glisser les icônes de la barre d'état à gauche de ce séparateur pour les masquer.";
+
+/* Accessibility value for the arrow status bar item when the status bar is expanded */
+"Expanded" = "Étendu";
+
+/* Accessibility hint for the arrow status bar item */
+"Hides or shows the status bar items." = "Masque ou affiche les icônes de la barre d'état.";
+
+/* Accessibility hint for the status bar illustration */
+"Icons to the left of the separator are hidden. Icons to the right stay visible." = "Les icônes à gauche du séparateur sont masquées. Celles à droite restent visibles.";
+
+/* Accessibility label for the status bar illustration */
+"Status bar example" = "Exemple de barre d'état";

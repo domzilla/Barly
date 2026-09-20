@@ -1,0 +1,30 @@
+/*
+  Accessibility.strings
+  Barly
+
+  Simplified Chinese
+*/
+
+/* Accessibility label for the arrow status bar item */
+"Barly" = "Barly";
+
+/* Accessibility label for the separator status bar item */
+"Barly separator" = "Barly 分隔符";
+
+/* Accessibility value for the arrow status bar item when the status bar is collapsed */
+"Collapsed" = "已折叠";
+
+/* Accessibility hint for the separator status bar item */
+"Drag status bar icons to the left of this separator to hide them." = "将状态栏图标拖到此分隔符左侧即可将其隐藏。";
+
+/* Accessibility value for the arrow status bar item when the status bar is expanded */
+"Expanded" = "已展开";
+
+/* Accessibility hint for the arrow status bar item */
+"Hides or shows the status bar items." = "隐藏或显示状态栏图标。";
+
+/* Accessibility hint for the status bar illustration */
+"Icons to the left of the separator are hidden. Icons to the right stay visible." = "分隔符左侧的图标会被隐藏。右侧的图标保持可见。";
+
+/* Accessibility label for the status bar illustration */
+"Status bar example" = "状态栏示例";

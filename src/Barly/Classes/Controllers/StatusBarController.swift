@@ -66,6 +66,17 @@ class StatusBarController: NSObject {
         // Setup separator (pipe) - created first, will be on the left
         if let button = separatorItem.button {
             button.image = NSImage(named: "seprator")
+            button.setAccessibilityLabel(NSLocalizedString(
+                "Barly separator",
+                tableName: "Accessibility",
+                comment: "Accessibility label for the separator status bar item"
+            ))
+            button.setAccessibilityHelp(NSLocalizedString(
+                "Drag status bar icons to the left of this separator to hide them.",
+                tableName: "Accessibility",
+                comment: "Accessibility hint for the separator status bar item"
+            ))
+            button.setAccessibilityIdentifier("StatusBarController.separatorItem")
         }
         self.separatorItem.autosaveName = "barly_separator"
 
@@ -75,6 +86,17 @@ class StatusBarController: NSObject {
             button.target = self
             button.action = #selector(self.arrowButtonClicked(_:))
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
+            button.setAccessibilityLabel(NSLocalizedString(
+                "Barly",
+                tableName: "Accessibility",
+                comment: "Accessibility label for the arrow status bar item"
+            ))
+            button.setAccessibilityHelp(NSLocalizedString(
+                "Hides or shows the status bar items.",
+                tableName: "Accessibility",
+                comment: "Accessibility hint for the arrow status bar item"
+            ))
+            button.setAccessibilityIdentifier("StatusBarController.arrowItem")
         }
         self.arrowItem.autosaveName = "barly_arrow"
     }
@@ -128,7 +150,8 @@ class StatusBarController: NSObject {
                 localized: "The separator is on the wrong side. Please drag the separator (|) to the left of the arrow icon in your status bar for Barly to work correctly."
             )
         alert.alertStyle = .warning
-        alert.addButton(withTitle: String(localized: "OK"))
+        let okButton = alert.addButton(withTitle: String(localized: "OK"))
+        okButton.setAccessibilityIdentifier("StatusBarController.okButton")
         alert.runModal()
     }
 
@@ -146,6 +169,11 @@ class StatusBarController: NSObject {
 
         if let button = arrowItem.button {
             button.image = NSImage(named: "expand")
+            button.setAccessibilityValue(NSLocalizedString(
+                "Collapsed",
+                tableName: "Accessibility",
+                comment: "Accessibility value for the arrow status bar item when the status bar is collapsed"
+            ))
         }
 
         self.activationPolicyManager.deactivate()
@@ -158,6 +186,11 @@ class StatusBarController: NSObject {
 
         if let button = arrowItem.button {
             button.image = NSImage(named: "collapse")
+            button.setAccessibilityValue(NSLocalizedString(
+                "Expanded",
+                tableName: "Accessibility",
+                comment: "Accessibility value for the arrow status bar item when the status bar is expanded"
+            ))
         }
 
         self.activationPolicyManager.activateIfEnabled()

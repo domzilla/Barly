@@ -1,0 +1,30 @@
+/*
+  Accessibility.strings
+  Barly
+
+  German
+*/
+
+/* Accessibility label for the arrow status bar item */
+"Barly" = "Barly";
+
+/* Accessibility label for the separator status bar item */
+"Barly separator" = "Barly-Trennzeichen";
+
+/* Accessibility value for the arrow status bar item when the status bar is collapsed */
+"Collapsed" = "Eingeklappt";
+
+/* Accessibility hint for the separator status bar item */
+"Drag status bar icons to the left of this separator to hide them." = "Ziehe Statusleisten-Symbole links neben dieses Trennzeichen, um sie auszublenden.";
+
+/* Accessibility value for the arrow status bar item when the status bar is expanded */
+"Expanded" = "Erweitert";
+
+/* Accessibility hint for the arrow status bar item */
+"Hides or shows the status bar items." = "Blendet die Statusleisten-Symbole aus oder ein.";
+
+/* Accessibility hint for the status bar illustration */
+"Icons to the left of the separator are hidden. Icons to the right stay visible." = "Symbole links vom Trennzeichen werden ausgeblendet. Symbole rechts davon bleiben sichtbar.";
+
+/* Accessibility label for the status bar illustration */
+"Status bar example" = "Statusleisten-Beispiel";

@@ -1,0 +1,30 @@
+/*
+  Accessibility.strings
+  Barly
+
+  Korean
+*/
+
+/* Accessibility label for the arrow status bar item */
+"Barly" = "Barly";
+
+/* Accessibility label for the separator status bar item */
+"Barly separator" = "Barly 구분선";
+
+/* Accessibility value for the arrow status bar item when the status bar is collapsed */
+"Collapsed" = "접힘";
+
+/* Accessibility hint for the separator status bar item */
+"Drag status bar icons to the left of this separator to hide them." = "상태 표시줄 아이콘을 이 구분선 왼쪽으로 드래그하면 숨겨집니다.";
+
+/* Accessibility value for the arrow status bar item when the status bar is expanded */
+"Expanded" = "펼침";
+
+/* Accessibility hint for the arrow status bar item */
+"Hides or shows the status bar items." = "상태 표시줄 아이콘을 숨기거나 표시합니다.";
+
+/* Accessibility hint for the status bar illustration */
+"Icons to the left of the separator are hidden. Icons to the right stay visible." = "구분선 왼쪽의 아이콘은 숨겨집니다. 오른쪽 아이콘은 계속 표시됩니다.";
+
+/* Accessibility label for the status bar illustration */
+"Status bar example" = "상태 표시줄 예시";

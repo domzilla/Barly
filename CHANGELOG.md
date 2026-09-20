@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Support for the March 2026 Mac models: MacBook Air M5 and MacBook Pro M5 Pro/Max.
+- VoiceOver labels and hints for the status bar items and preferences controls.
 
 ### Changed
 

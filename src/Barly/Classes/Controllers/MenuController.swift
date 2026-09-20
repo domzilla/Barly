@@ -38,6 +38,7 @@ class MenuController: NSObject, NSMenuItemValidation {
                 keyEquivalent: ""
             )
             notchItem.target = self
+            notchItem.setAccessibilityIdentifier("MenuController.notchItem")
             menu.addItem(notchItem)
             menu.addItem(NSMenuItem.separator())
         }
@@ -48,6 +49,7 @@ class MenuController: NSObject, NSMenuItemValidation {
             keyEquivalent: ","
         )
         prefsItem.target = self
+        prefsItem.setAccessibilityIdentifier("MenuController.prefsItem")
         menu.addItem(prefsItem)
 
         let aboutItem = NSMenuItem(
@@ -56,6 +58,7 @@ class MenuController: NSObject, NSMenuItemValidation {
             keyEquivalent: ""
         )
         aboutItem.target = self
+        aboutItem.setAccessibilityIdentifier("MenuController.aboutItem")
         menu.addItem(aboutItem)
 
         let updatesItem = NSMenuItem(
@@ -64,6 +67,7 @@ class MenuController: NSObject, NSMenuItemValidation {
             keyEquivalent: ""
         )
         updatesItem.target = self
+        updatesItem.setAccessibilityIdentifier("MenuController.updatesItem")
         menu.addItem(updatesItem)
 
         menu.addItem(NSMenuItem.separator())
@@ -74,6 +78,7 @@ class MenuController: NSObject, NSMenuItemValidation {
             keyEquivalent: "q"
         )
         quitItem.target = self
+        quitItem.setAccessibilityIdentifier("MenuController.quitItem")
         menu.addItem(quitItem)
 
         return menu

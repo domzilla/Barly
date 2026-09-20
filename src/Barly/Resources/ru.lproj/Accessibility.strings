@@ -1,0 +1,30 @@
+/*
+  Accessibility.strings
+  Barly
+
+  Russian
+*/
+
+/* Accessibility label for the arrow status bar item */
+"Barly" = "Barly";
+
+/* Accessibility label for the separator status bar item */
+"Barly separator" = "Разделитель Barly";
+
+/* Accessibility value for the arrow status bar item when the status bar is collapsed */
+"Collapsed" = "Свёрнуто";
+
+/* Accessibility hint for the separator status bar item */
+"Drag status bar icons to the left of this separator to hide them." = "Перетащите значки строки состояния влево от этого разделителя, чтобы скрыть их.";
+
+/* Accessibility value for the arrow status bar item when the status bar is expanded */
+"Expanded" = "Развёрнуто";
+
+/* Accessibility hint for the arrow status bar item */
+"Hides or shows the status bar items." = "Скрывает или показывает значки строки состояния.";
+
+/* Accessibility hint for the status bar illustration */
+"Icons to the left of the separator are hidden. Icons to the right stay visible." = "Значки слева от разделителя скрываются. Значки справа остаются видимыми.";
+
+/* Accessibility label for the status bar illustration */
+"Status bar example" = "Пример строки состояния";

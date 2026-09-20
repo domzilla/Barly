@@ -48,6 +48,7 @@ class ActivationPolicyManager {
             action: #selector(NSApplication.terminate(_:)),
             keyEquivalent: "q"
         )
+        quitItem.setAccessibilityIdentifier("ActivationPolicyManager.quitItem")
         appMenu.addItem(quitItem)
 
         self.emptyMenu = mainMenu

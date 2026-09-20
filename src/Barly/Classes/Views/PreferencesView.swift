@@ -23,6 +23,7 @@ struct PreferencesView: View {
                 Image(nsImage: NSImage(named: NSImage.applicationIconName) ?? NSImage())
                     .resizable()
                     .frame(width: 100, height: 100)
+                    .accessibilityHidden(true)
 
                 VStack(alignment: .leading, spacing: 12) {
                     Text(
@@ -47,10 +48,7 @@ struct PreferencesView: View {
 
             // Auto-collapse duration
             HStack(spacing: 8) {
-                Text("Auto-collapse after:")
-                    .font(.system(size: 13))
-
-                Picker("", selection: self.$autoCollapseDelay) {
+                Picker(String(localized: "Auto-collapse after:"), selection: self.$autoCollapseDelay) {
                     Text("5 seconds").tag(5)
                     Text("10 seconds").tag(10)
                     Text("15 seconds").tag(15)
@@ -58,7 +56,7 @@ struct PreferencesView: View {
                     Text("1 minute").tag(60)
                 }
                 .pickerStyle(.menu)
-                .frame(width: 180)
+                .accessibilityIdentifier("PreferencesView.autoCollapseDelayPicker")
 
                 Spacer()
             }
@@ -68,12 +66,15 @@ struct PreferencesView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Toggle("Enable auto-collapse", isOn: self.$isAutoCollapseEnabled)
                     .font(.system(size: 13))
+                    .accessibilityIdentifier("PreferencesView.autoCollapseToggle")
 
                 Toggle("Fully expand status bar (shows Dock icon temporarily)", isOn: self.$isFullExpandEnabled)
                     .font(.system(size: 13))
+                    .accessibilityIdentifier("PreferencesView.fullExpandToggle")
 
                 Toggle("Show this window when starting Barly", isOn: self.$showPreferencesOnLaunch)
                     .font(.system(size: 13))
+                    .accessibilityIdentifier("PreferencesView.showPreferencesOnLaunchToggle")
             }
 
             Spacer()
@@ -84,6 +85,7 @@ struct PreferencesView: View {
                     NSApp.terminate(nil)
                 }
                 .controlSize(.large)
+                .accessibilityIdentifier("PreferencesView.quitButton")
 
                 Spacer()
 
@@ -93,6 +95,7 @@ struct PreferencesView: View {
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
                 .keyboardShortcut(.defaultAction)
+                .accessibilityIdentifier("PreferencesView.closeButton")
             }
             .padding(.bottom, 20)
         }

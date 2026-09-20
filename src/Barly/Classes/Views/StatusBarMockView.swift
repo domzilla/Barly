@@ -91,6 +91,20 @@ struct StatusBarMockView: View {
                     }
                 }
             }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(Text(
+                "Status bar example",
+                tableName: "Accessibility",
+                bundle: .main,
+                comment: "Accessibility label for the status bar illustration"
+            ))
+            .accessibilityHint(Text(
+                "Icons to the left of the separator are hidden. Icons to the right stay visible.",
+                tableName: "Accessibility",
+                bundle: .main,
+                comment: "Accessibility hint for the status bar illustration"
+            ))
+            .accessibilityIdentifier("StatusBarMockView.statusBarMock")
         }
         .padding(.bottom, 24)
     }

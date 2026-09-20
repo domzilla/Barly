@@ -1,0 +1,30 @@
+/*
+  Accessibility.strings
+  Barly
+
+  Japanese
+*/
+
+/* Accessibility label for the arrow status bar item */
+"Barly" = "Barly";
+
+/* Accessibility label for the separator status bar item */
+"Barly separator" = "Barlyセパレーター";
+
+/* Accessibility value for the arrow status bar item when the status bar is collapsed */
+"Collapsed" = "折りたたみ済み";
+
+/* Accessibility hint for the separator status bar item */
+"Drag status bar icons to the left of this separator to hide them." = "ステータスバーのアイコンをこのセパレーターの左側にドラッグすると非表示になります。";
+
+/* Accessibility value for the arrow status bar item when the status bar is expanded */
+"Expanded" = "展開済み";
+
+/* Accessibility hint for the arrow status bar item */
+"Hides or shows the status bar items." = "ステータスバーのアイコンを非表示または表示にします。";
+
+/* Accessibility hint for the status bar illustration */
+"Icons to the left of the separator are hidden. Icons to the right stay visible." = "セパレーターの左側のアイコンは非表示になります。右側のアイコンは表示されたままです。";
+
+/* Accessibility label for the status bar illustration */
+"Status bar example" = "ステータスバーの例";
