@@ -16,6 +16,10 @@ Read these in full before touching the matching code:
 - Swift style (`.swift`): `~/Agents/Style/swift-swiftui-style-guide.md`
 - Accessibility (UI code, XIBs, storyboards): `~/Agents/Guides/accessibility-guide.md`
 
+## Dependencies
+- **DZFoundation** (Swift package)
+- **Sparkle** (Swift package) — auto-updates
+
 ## Naming Convention
 - **Menu Bar**: The left side of the top bar showing app menus (App Name, File, Edit, View, etc.)
 - **Status Bar**: The right side of the top bar where icons live (system icons, third-party app icons)
@@ -41,7 +45,6 @@ Barly is a macOS status bar management app that hides/shows status bar items. It
 
 1. **main.swift** (`src/Barly/Classes/main.swift`) - Native AppKit entry point, creates `NSApplication` and sets `AppDelegate`
 2. **AppDelegate** (`src/Barly/Classes/AppDelegate.swift`) - Initializes `StatusBarController` and `HotkeyManager` on launch
-2. **AppDelegate** (`src/Barly/Classes/AppDelegate.swift`) - Initializes `StatusBarController` and `HotkeyManager` on launch
 3. **StatusBarController** (`src/Barly/Classes/Controllers/StatusBarController.swift`) - Core logic for the status bar items
 
 ### Status Bar Hide/Show Mechanism
@@ -59,7 +62,7 @@ Collapse works by setting the separator's length to 10,000 pixels, pushing other
 | **StatusBarController** | `Controllers/StatusBarController.swift` | Core hide/show logic, manages two NSStatusItems |
 | **MenuController** | `Controllers/MenuController.swift` | Context menu, preferences window. Uses `NSMenuItemValidation` for notch toggle |
 | **DisplayModeManager** | `Utilities/DisplayModeManager.swift` | Display mode switching for notch hiding. Detects lid closed state |
-| **DeviceInformation** | `Utilities/DeviceInformation.swift` | Model identifier, notch detection (25+ Mac models) |
+| **DeviceInformation** | `Utilities/DeviceInformation.swift` | Model identifier, notch detection (hardcoded model list) |
 | **ActivationPolicyManager** | `Utilities/ActivationPolicyManager.swift` | Full expand feature (dock icon + empty menu bar) |
 | **HotkeyManager** | `Utilities/HotkeyManager.swift` | Global hotkey (Cmd+Option+B) via Carbon API |
 | **Preferences** | `Models/Preferences.swift` | UserDefaults keys and defaults |
@@ -76,15 +79,13 @@ Stored via `@AppStorage`/`UserDefaults`:
 
 ### Notch Support
 
-`DeviceInformation.swift` contains a hardcoded list of Mac models with notches:
-- MacBook Air 13"/15" (M2, M3, M4)
-- MacBook Pro 14"/16" (M1 Pro/Max through M5)
+`DeviceInformation.swift` contains a hardcoded list of notched MacBook Air and MacBook Pro model identifiers; it is the source of truth for which Macs are supported. Add new models there.
 
 The notch hide feature uses `DisplayModeManager` to switch to a 16:10 display mode that doesn't use the notch area.
 
 ### Localization
 
-Localization files are in `src/Barly/Ressources/`. Supported languages:
+Localization files are in `src/Barly/Resources/`. Supported languages:
 
 | Language | Folder |
 |----------|--------|
@@ -101,7 +102,7 @@ Localization files are in `src/Barly/Ressources/`. Supported languages:
 | Russian | `ru.lproj` |
 | Simplified Chinese | `zh-Hans.lproj` |
 
-All user-facing strings use `String(localized:)` for localization support.
+User-facing strings use `String(localized:)` (`Localizable.strings`); accessibility strings use `NSLocalizedString(_:tableName: "Accessibility", comment:)` (`Accessibility.strings`).
 
 ## Tools
 ### Clutter (`tools/Clutter/`)
